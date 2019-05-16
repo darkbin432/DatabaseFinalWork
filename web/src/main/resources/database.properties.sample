@@ -1,7 +1,0 @@
-#mysql
-jdbc.driverClassName=com.mysql.jdbc.Driver
-
-jdbc.url=jdbc:mysql://:3306/dodo?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&failOverReadOnly=false
-
-jdbc.username=root
-jdbc.password=
