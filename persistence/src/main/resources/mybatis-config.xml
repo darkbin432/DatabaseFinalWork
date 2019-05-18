@@ -24,6 +24,10 @@
 
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml"/>
+		<mapper resource="mappers/CourseMapper.xml"/>
+		<mapper resource="mappers/ExamMapper.xml"/>
+		<mapper resource="mappers/MailMapper.xml"/>
+		<mapper resource="mappers/ProblemMapper.xml"/>
 
 	</mappers>
 
