@@ -1,0 +1,251 @@
+/*general*/
+form {
+    margin: 0;
+    padding: 0;
+}
+
+.f-wrapper {
+    padding: 10px;
+}
+
+.f-fade {
+    background: #fff url(support/topfade.gif) repeat-x top;
+}
+
+.f-fade-red {
+    background: #fdd url(support/topfadered.gif) repeat-x top;
+    color: black !important;
+}
+/*.f-textbox { border: 1px solid #ccc; padding: 4px; color: #555; width: 160px; }*/
+.f-textbox {
+    padding: 5px 8px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/*.f-textarea { border: 1px solid #ccc; padding: 4px; margin: 0; color: #555; min-height: 50px; }*/
+.f-textarea {
+    padding: 5px 8px;
+    margin: 0;
+    color: #555;
+    min-height: 50px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/*.f-combobox { border: 1px solid #ccc; padding: 3px 1px 3px 4px; color: #555; margin: 0; }*/
+.f-combobox {
+    padding: 5px 8px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.f-combobox-tiny {
+    border: 1px solid #ccc;
+    color: #000000;
+    margin: 0 3px;
+    padding: 1px 2px;
+}
+
+/* extension */
+.f-date {
+    width: 80px;
+}
+
+.f-number {
+    width: 50px;
+}
+/* checkbox */
+.f-checkbox {
+    width: 20px;
+    height: 20px;
+    display: inline;
+    float: left;
+    background: transparent url(support/checkbox_no.png) no-repeat 2px 2px;
+}
+
+.f-unchecked {
+    background-image: url(support/checkbox_no.png);
+}
+
+.f-checked {
+    background-image: url(support/checkbox_yes.png);
+}
+
+/* button */
+.f-button {
+    vertical-align: middle;
+    overflow: hidden;
+    margin-right: 5px;
+    padding: 0;
+    height: 23px;
+    border: 1px solid #999;
+    background: #e5e5e5 url(support/pn.png) repeat-x 0 0;
+    cursor: pointer;
+    -moz-box-shadow: 0 1px 0 #e5e5e5;
+    -webkit-box-shadow: 0 1px 0 #e5e5e5;
+    box-shadow: 0 1px 0 #e5e5e5;
+}
+
+    .f-button * {
+        cursor: pointer;
+    }
+
+    .f-button:active {
+        background-position: 0 -23px;
+    }
+
+    .f-button em, .f-button span, .f-button strong {
+        padding: 0 10px;
+        line-height: 21px;
+    }
+
+    .f-button em, .f-button strong {
+        font-weight: 700;
+    }
+
+.f-button-blue {
+    border-color: #235994;
+    background-color: #06c;
+    background-position: 0 -48px;
+    color: #fff;
+}
+
+    .f-button-blue:active {
+        background-position: 0 -71px;
+    }
+
+.f-button-h30 {
+    height: 30px;
+}
+
+a.f-button {
+    display: inline-block;
+    height: 23px;
+    line-height: 23px;
+    text-decoration: none;
+}
+/*ie fix*/
+.ie7 .f-button {
+    overflow-x: visible;
+    zoom: 1;
+    padding: 0;
+    border: none;
+}
+
+.ie7 .f-button-blue {
+    border: none;
+}
+
+.ie6 .f-button {
+    overflow-x: visible;
+    zoom: 1;
+    border: none;
+}
+
+.ie6 .f-button-blue {
+    border: none;
+}
+
+/* table */
+.f-tbl {
+    margin-bottom: 15px;
+    empty-cells: show;
+}
+
+    .f-tbl p {
+        margin-top: 10px;
+    }
+
+    .f-tbl th, .f-tbl td {
+        padding: 5px;
+    }
+
+        .f-tbl th.fixed {
+            width: 100px;
+        }
+
+    .f-tbl th {
+        text-align: right;
+        font-weight: normal;
+        vertical-align: top;
+    }
+
+    .f-tbl em {
+        font-style: normal;
+        color: red;
+    }
+
+    .f-tbl .display-field-name {
+        padding-top: 10px;
+        padding-bottom: 1px;
+        padding-left: 10px;
+    }
+
+    .f-tbl .display-field-value {
+        padding-top: 10px;
+        padding-bottom: 1px;
+        min-width: 120px;
+        border-bottom: 1px solid #999;
+    }
+
+.ie6 .f-tbl .display-field-value, .ie7 .f-tbl .display-field-value {
+    width: 120px;
+}
+
+.filter {
+    border-bottom: 1px dotted #ccc;
+    padding: 8px;
+}
+
+    .filter.last {
+        border-bottom: 0;
+    }
+
+.filter-tit {
+    display: inline-block;
+    color: gray;
+    width: 68px;
+    text-align: right;
+}
+
+.filter-item {
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    line-height: normal;
+    margin: 2px;
+    cursor: pointer;
+}
+
+    .filter-item.on {
+        border-color: #308ed1;
+        background-color: #308ed1;
+        color: #fff;
+    }
+
+.d-tbl {
+    border-collapse: collapse;
+    empty-cells: show;
+}
+
+    .d-tbl th {
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+        border-bottom-width: 2px;
+    }
+
+    .d-tbl td {
+        border: 1px solid #ccc;
+        padding: 5px;
+    }

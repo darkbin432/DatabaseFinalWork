@@ -1,0 +1,35 @@
+/* breadcrumb */
+/*div*/
+#breadcrumb { zoom: 1; border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+/*ul*/
+.breadcrumb { list-style: none; margin: 0; padding-left: 25px; height: 31px; margin-bottom: 5px; }
+/*li*/
+.breadcrumb-item { display: inline-block; height: 31px; margin: 0; padding: 0; }
+.breadcrumb-item-nav{ display: inline-block; height: 31px; margin: 0; padding: 0;width:200px;height:35px}
+/*li first*/
+.breadcrumb-item.first { }
+/*a*/
+.breadcrumb-item a { background-image: url(support/breadcrumb.png); background-repeat: no-repeat; background-position: 100% 0; height: 31px; line-height: 31px; padding: 0 17px 0 18px; }
+.breadcrumb-item a, .breadcrumb-item a:link, .breadcrumb-item a:visited { color: #666; display: inline-block; font-size: 12px; margin-left: -17px; position: relative; text-decoration: none; }
+.breadcrumb-item a:hover { background-position: 100% -48px; color: #333; }
+.breadcrumb-item a:active { background-position: 100% -96px; color: #333;}
+.breadcrumb-item.first a, .breadcrumb-item.first a:link, .breadcrumb-item.first a:visited { padding-left: 0; }
+/*span*/
+.breadcrumb-item .left-bc { background: url(support/breadcrumb.png) no-repeat; padding-left: 10px; z-index: 20; display: inline-block; height: 31px; cursor:pointer; }
+.breadcrumb-item a:hover .left-bc { background-position: 0 -48px; }
+.breadcrumb-item a:active .left-bc { background-position: 0 -96px; }
+.breadcrumb-item-nav .left-nav { background: url(support/breadcrumb.png) no-repeat -600px 0px ;font-weight: bold;font-size:14px;text-align:center;line-height:30px;width:200px; display: inline-block; height: 35px; }
+/* IE fixes */
+.ie9 .breadcrumb-item.first a { background-position: 100% 1px; }
+.ie9 .breadcrumb-item.first a:hover { background-position: 100% -47px; }
+.ie9 .breadcrumb-item.first a:active { background-position: 100% -95px; }
+.ie8 .breadcrumb-item.first a { background-position: 100% 1px; }
+.ie8 .breadcrumb-item.first a:hover { background-position: 100% -47px; }
+.ie8 .breadcrumb-item.first a:active { background-position: 100% -95px; }
+.ie7 .breadcrumb { padding-left: 10px; }
+.ie7 .breadcrumb-item { display: inline; }
+.ie7 .breadcrumb-item a, .ie7 .breadcrumb-item a:link, .ie7 .breadcrumb-item a:visited { margin-left: -16px; }
+.ie6 .breadcrumb { padding-left: 10px; }
+.ie6 .breadcrumb-item { display: inline; }
+.ie6 .breadcrumb-item a, .ie6 .breadcrumb-item a:link, .ie6 .breadcrumb-item a:visited { margin-left: -16px; }
+

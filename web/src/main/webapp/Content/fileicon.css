@@ -1,0 +1,43 @@
+.ico { zoom: 1; overflow: hidden; background: url(support/file_ico.png) no-repeat 0 0; display: inline-block; vertical-align: middle;}
+.ico-32 { background-position: -385px -64px; height: 32px; width: 32px; margin-right: 5px;}
+.ico-16 { background-position: -384px -0px; height: 16px; width: 16px; margin-right: 3px;}
+/*32*32*/
+.ico-32.ico-dir { background-position: -384px -96px; }
+.ico-32.ico-xls { background-position: -33px -64px; }
+.ico-32.ico-doc { background-position: -65px -64px; }
+.ico-32.ico-ppt { background-position: -97px -64px; }
+.ico-32.ico-7z { background-position: -129px -64px; }
+.ico-32.ico-rar { background-position: -161px -64px; }
+.ico-32.ico-zip { background-position: -193px -64px; }
+.ico-32.ico-html { background-position: -289px -64px; }
+.ico-32.ico-exe { background-position: -449px -64px; }
+.ico-32.ico-font { background-position: -481px -64px; }
+.ico-32.ico-pdf { background-position: -512px -64px; }
+.ico-32.ico-swf { background-position: -641px -64px; }
+.ico-32.ico-txt { background-position: -705px -64px; }
+.ico-32.ico-music { background-position: -801px -64px; }
+.ico-32.ico-mp4 { background-position: -769px -64px; }
+.ico-32.ico-jpg { background-position: 0px -96px; }
+.ico-32.ico-gif { background-position: -32px -96px; }
+.ico-32.ico-png { background-position: -64px -96px; }
+.ico-32.ico-bmp { background-position: -96px -96px; }
+/*16*16*/
+.ico-16.ico-dir { background-position: -384px -32px; }
+.ico-16.ico-xls { background-position: -32px 0px; }
+.ico-16.ico-doc { background-position: -64px 0px; }
+.ico-16.ico-ppt { background-position: -96px 0px; }
+.ico-16.ico-7z { background-position: -128px 0px; }
+.ico-16.ico-rar { background-position: -160px 0px; }
+.ico-16.ico-zip { background-position: -192px 0px; }
+.ico-16.ico-html { background-position: -288px 0px; }
+.ico-16.ico-exe { background-position: -448px 0px; }
+.ico-16.ico-font { background-position: -480px 0px; }
+.ico-16.ico-pdf { background-position: -512px 0px; }
+.ico-16.ico-swf { background-position: -640px 0px; }
+.ico-16.ico-txt { background-position: -704px 0px; }
+.ico-16.ico-music { background-position: -800px 0px; }
+.ico-16.ico-mp4 { background-position: -768px 0px; }
+.ico-16.ico-jpg { background-position: 0px -32px; }
+.ico-16.ico-gif { background-position: -32px -32px; }
+.ico-16.ico-png { background-position: -64px -32px; }
+.ico-16.ico-bmp { background-position: -96px -32px; }
