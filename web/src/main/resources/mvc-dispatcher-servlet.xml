@@ -28,7 +28,8 @@
     </mvc:annotation-driven>
 
 
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/Content/**" location="/Content/"/>
+    <mvc:resources mapping="/Scripts/**" location="/Scripts/"/>
 
     <!--<mvc:interceptors>-->
     <!--<mvc:interceptor>-->

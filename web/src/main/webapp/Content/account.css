@@ -1,0 +1,334 @@
+/* logon*/
+.l-content { /*font-family: "宋体";*/
+    margin: 0 auto;
+    background: url(images/newframe/logonbg.jpg) center 0 no-repeat;
+    text-align: left;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    width: 1000px;
+    height: 458px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.logo {
+    width: 350px;
+    height: 86px;
+    float: left;
+    padding-left: 50px;
+}
+
+.denglu {
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    float: right;
+    width: 300px;
+    margin-top: 40px;
+    /* margin-left: 10px; */
+    height: 320px;
+}
+
+.shuru {
+    width: 256px;
+    height: 41px;
+    line-height: 41px;
+    color: #FFFFFF;
+    margin: 15px;
+    margin-bottom: 30px;
+}
+
+.shuru_style {
+    outline: none;
+    width: 221px;
+    height: 31px;
+    line-height: 31px;
+    background: url(images/logon/zh_bg.png) 0 0 no-repeat;
+    margin: 0;
+    padding: 5px 0;
+    border: 0;
+    padding-left: 40px;
+    color: #333;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.shuru_stylehover {
+    outline: none;
+    width: 221px;
+    height: 41px;
+    line-height: 41px;
+    background: url(images/logon/zh_hoverbg.png) 0 0 no-repeat;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    padding-left: 35px;
+    color: #333;
+    font-size: 16px;
+}
+
+.shuru_style01 {
+    outline: none;
+    width: 221px;
+    height: 31px;
+    line-height: 31px;
+    background: url(images/logon/mim_bg.png) 0 0 no-repeat;
+    margin: 0;
+    padding: 5px 0;
+    border: 0;
+    padding-left: 40px;
+    color: #333;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.shuru_style01hover {
+    outline: none;
+    width: 221px;
+    height: 41px;
+    line-height: 41px;
+    background: url(images/logon/mim_hoverbg.png) 0 0 no-repeat;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    padding-left: 35px;
+    color: #333;
+    font-size: 16px;
+}
+
+.conttent {
+    width: 100%; /*height: 210px;*/
+    margin: 0px auto;
+    padding-bottom: 50px;
+    background: #eff3f6;
+}
+
+.conttent01 {
+    width: 800px; /*height: 210px;*/
+    margin: 0 auto;
+    background: #eff3f6;
+}
+
+    .conttent01 ul {
+        list-style: none;
+        background: #eff3f6;
+    }
+
+        .conttent01 ul li {
+            padding: 0 15px;
+            line-height: 25px;
+            font-size: 14px;
+            color: #4d4c4c;
+        }
+
+            .conttent01 ul li a {
+                color: #003a84;
+                text-decoration: none;
+            }
+
+                .conttent01 ul li a:hover {
+                    text-decoration: underline;
+                }
+
+.footer {
+    width: 960px;
+    margin: 0 auto;
+    line-height: 20px;
+    margin-top: 20px;
+    text-align: center;
+    color: #999;
+}
+
+    .footer a {
+        color: #999;
+    }
+
+/*edit profile*/
+.avatar-upload-container {
+    padding: 24px;
+    border: 1px #EBEBEB solid;
+    border-radius: 5px;
+    background-color: #EFEFEF;
+    margin-bottom: 15px;
+}
+
+.avatar-upload {
+    float: left;
+    width: 500px;
+}
+
+.avatar-upload-tips {
+    float: left;
+    width: 300px;
+    border-left: 1px #CFCFCF dashed;
+    padding-left: 10px;
+}
+
+.avatar-grid {
+    margin-bottom: 24px;
+}
+
+.avatar-tips {
+    margin: 5px 24px 15px 20px;
+    line-height: 1.7;
+}
+
+.avatar-edit-grid {
+    margin: 10px 0 0 20px;
+}
+
+    .avatar-edit-grid .col {
+        float: left;
+        display: inline;
+        margin-right: 20px;
+        overflow: hidden;
+    }
+
+    .avatar-edit-grid .col-1 {
+        width: 160px;
+    }
+
+    .avatar-edit-grid .col-2 {
+        width: 100px;
+    }
+
+    .avatar-edit-grid .col-3 {
+        width: 80px;
+    }
+
+    .avatar-edit-grid .col-4 {
+        width: 60px;
+    }
+
+    .avatar-edit-grid .hd {
+        margin-bottom: 10px;
+        color: #454545;
+    }
+
+.avatar-edit-actions {
+    margin: 25px 0 20px 20px;
+}
+
+/*top*/
+.l-top {
+    width: 100%;
+    height: 100px;
+}
+
+.l-topinner {
+    width: 1000px;
+    margin: 0 auto 0 auto;
+}
+
+.l-nav {
+    float: right;
+    margin-top: 60px;
+}
+
+/*content*/
+.content-tital {
+    margin: 150px 0 0 0px;
+    float: left;
+    font-family: 'Microsoft YaHei';
+    font-size: 30px;
+    color: #fff;
+}
+
+.content-titalinfo {
+    margin: 200px 0 0 -180px;
+    float: left;
+    font-family: 'Microsoft YaHei';
+    font-size: 16px;
+    color: #fff;
+    width: 390px;
+}
+
+.welcome {
+    color: rgb(81, 146, 203);
+    margin: 20px;
+    font-family: Microsoft YaHei;
+    font-size: 20px;
+}
+
+.product {
+    height: 60px;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(150, 146, 146);
+}
+
+.productinfo {
+    width: 1000px;
+    margin: 0 auto 0 auto;
+    height: 160px;
+    color: #000;
+}
+.productinfo-item {
+    width: 250px;
+    display: block;
+    float: left;
+    height: 160px;
+}
+.productinfo-item-img {
+    width: 80px;
+    margin: 0 auto;
+}
+
+.productinfo-item-name {
+    width: 250px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+}
+
+.productinfo-item-use {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+    color: #919191;
+}
+
+.productinfo-item-memo {
+    width: 200px;
+    margin: 20px auto 0 auto;
+    color: #919191;
+    font-size: 14px;
+    text-align: left;
+}
+
+.productinfo-item-enter {
+    width: 250px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+    color: #6aa7db;
+}

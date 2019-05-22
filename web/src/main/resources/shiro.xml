@@ -10,7 +10,7 @@
 
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
-		<property name="loginUrl" value="/login" />
+		<property name="loginUrl" value="/index" />
 		<property name="successUrl" value="/index" />
 		<property name="unauthorizedUrl" value="/unauth" />
 		<!-- <property name="filters"> -->
@@ -31,6 +31,10 @@
 
 				/remote/**=anon
 				/resources/**=anon
+				/Content/**=anon
+				/Scripts/**=anon
+				/GoTest/**=anon
+				/index=anon
 				/favicon.ico=anon
 				/unauth=anon
 				/test/**=anon
