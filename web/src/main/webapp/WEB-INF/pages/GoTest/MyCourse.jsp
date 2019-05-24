@@ -106,7 +106,7 @@
                     <div class="course-teacher">
                         <span>胡斌</span>
                         &nbsp;&nbsp;&nbsp;
-                        <img src="../..<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
+                        <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
                     </div>
                 </div>
                 <div class="course-learn">
@@ -126,7 +126,7 @@
                 <div class="course-teacher">
                     <span>姚争为</span>
                     &nbsp;&nbsp;&nbsp;
-                    <img src="../../Content/images/newframe/letter.png" style="float: left">
+                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
                 </div>
             </div>
             <div class="course-learn">
@@ -146,7 +146,7 @@
                 <div class="course-teacher">
                     <span>虞歌</span>
                     &nbsp;&nbsp;&nbsp;
-                    <img src="../../Content/images/newframe/letter.png" style="float: left">
+                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
                 </div>
             </div>
             <div class="course-learn">
@@ -166,7 +166,7 @@
                 <div class="course-teacher">
                     <span>虞歌</span>
                     &nbsp;&nbsp;&nbsp;
-                    <img src="../../Content/images/newframe/letter.png" style="float: left">
+                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
                 </div>
             </div>
             <div class="course-learn">
@@ -186,7 +186,7 @@
                 <div class="course-teacher">
                     <span>虞剑波</span>
                     &nbsp;&nbsp;&nbsp;
-                    <img src="../../Content/images/newframe/letter.png" style="float: left">
+                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
                 </div>
             </div>
             <div class="course-learn">
@@ -243,11 +243,11 @@
         }, 5000);
     });
 
-    $.post('/Message/UnreadedMsg', function (data) {
-        if (data > 0) {
-            $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
-        }
-    });
+    // $.post('/Message/UnreadedMsg', function (data) {
+    //     if (data > 0) {
+    //         $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
+    //     }
+    // });
 </script>
 </body>
 </html>
