@@ -76,7 +76,7 @@
             <div class="clearfix"></div>
         </div>
         <div id="user_actions">
-            <span id="user_info">罗伟斌</span>
+            <span id="user_info"></span>
             <a href="<%=request.getContextPath()%>/logout" id="cmd_logout" title="退出系统">
                 <!--[if IE 6]>
                 <div style="height:100%; width:100%;"></div>
@@ -118,6 +118,7 @@
 
         </div>
     </div>
+
     <script type="text/javascript">
         $("#search_form").submit(function () {
             if ($('.sort-key-button.enabled').hasClass('up')) {
@@ -140,6 +141,13 @@
     </script>
 
 </div>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#user_info").html(user.name);
+    })
+</script>
+
 <script type="text/javascript">
     (function ($) {
         $(document.body).ajaxError(function (event, request, settings, ex) {
@@ -185,11 +193,11 @@
         }, 5000);
     });
 
-    $.post('/Message/UnreadedMsg', function (data) {
-        if (data > 0) {
-            $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
-        }
-    });
+    // $.post('/Message/UnreadedMsg', function (data) {
+    //     if (data > 0) {
+    //         $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
+    //     }
+    // });
 </script>
 </body>
 </html>

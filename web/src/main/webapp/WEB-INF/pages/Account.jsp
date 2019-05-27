@@ -100,7 +100,6 @@
             <ul style="border: none; border-bottom: 1px solid #ccc; background: #fff; -moz-border-radius: 0/*{cornerRadius}*/; -webkit-border-radius: 0/*{cornerRadius}*/; border-radius: 0/*{cornerRadius}*/;">
                 <li><a href="#tabs-1">基本资料</a></li>
                 <li><a href="#tabs-2">安全设置</a></li>
-                <li><a href="#tabs-3">头像设置</a></li>
             </ul>
             <div id="tabs-1">
                 <div><div class="feed-hd span30" style="line-height: 30px; font-size: 14px;">
@@ -232,109 +231,6 @@
                             </td>
                         </tr>
                     </table>
-                </div>
-            </div>
-            <div id="tabs-3">
-                <div class="avatar-feed">
-                    <div class="avatar-upload-container">
-                        <div class="avatar-upload">
-                            <link href="<%=request.getContextPath()%>/Content/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
-                            <script type="text/javascript" src="<%=request.getContextPath()%>/Content/uploadify/swfobject.js"></script>
-                            <script type="text/javascript" src="<%=request.getContextPath()%>/Content/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
-                            <div id="upload_feed">
-                                <input type="hidden" id="file_upload_proxy" name="fileFullPath" />
-                                <input type="file" id="file_upload" name="file_upload" />
-                            </div>
-                            <script type="text/javascript">
-                                function toObject(json) {
-                                    eval("var o=" + json);
-                                    return o;
-                                }
-                                $(function () {
-                                    $('#file_upload').uploadify({
-                                        'uploader': '/Content/uploadify/uploadify.swf?v=' + (new Date()).getTime(),
-                                        'script': '/Account/UploadAvatar/',
-                                        'cancelImg': '/Content/uploadify/cancel.png',
-                                        'auto': true,
-                                        'multi': false,
-                                        'wmode': 'transparent',
-                                        'buttonImg': '/Content/uploadify/btn_answer.png',
-                                        'width': 120,
-                                        'height': 25,
-                                        'fileExt': '*.jpg;*.jpeg;*.gif;*.png;',
-                                        'fileDesc': '*.jpg;*.jpeg;*.gif;*.png;',
-                                        'sizeLimit': 1024 * 1024 * 10, /*10M*/
-                                        'scriptData': { 'folderName': 'avatar' },
-
-                                        'onComplete': function (event, ID, fileObj, response, data) {
-                                            if (response == "") {
-                                                alert("上传失败！");
-                                            } else {
-                                                var entity = toObject(response);
-                                                $("#file_upload_proxy").val(entity.formVal);
-                                                uploadCallback(fileObj, entity.preview, data);
-                                            }
-                                        },
-                                        onError: function (event, queueID, fileObj) {
-                                            alert("文件:" + fileObj.name + " 上传失败");
-                                        }
-                                    });
-                                });
-                            </script>
-
-                        </div>
-                        <div class="avatar-upload-tips">
-                            1. 点击“点击浏览文件”按钮，浏览到自己的照片。<br />
-                            2. 点击“上传”按钮上传照片。<br />
-                            3. 查看头像预览效果。<br />
-                            4. 支持上传10M内的JPG、GIF或PNG文件。
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-
-                    <div class="feed-hd span30" style="line-height: 30px; font-size: 14px;">头像预览</div>
-                    <div class="avatar-edit-grid">
-                        <div class="col col-1">
-                            <div class="hd">
-                                主页头像（128 X 128）：
-                            </div>
-                            <div class="bd">
-                                <img id="img128" alt="头像预览" width="128" height="128" src="<%=request.getContextPath()%>/Content/images/avatar_default.gif">
-                            </div>
-                        </div>
-                        <div class="col col-2">
-                            <div class="hd">
-                                64 X 64：
-                            </div>
-                            <div class="bd">
-                                <img id="img64" alt="头像预览" width="64" height="64" src="<%=request.getContextPath()%>/Content/images/avatar_default.gif">
-                            </div>
-                        </div>
-                        <div class="col col-3">
-                            <div class="hd">
-                                32 X 32：
-                            </div>
-                            <div class="bd">
-                                <img id="img32" alt="头像预览" width="32" height="32" src="/content/images/avatar_default.gif">
-                            </div>
-                        </div>
-
-                        <div class="clear">
-                        </div>
-                    </div>
-                    <div class="avatar-tips hide">
-                        <p>觉得不好？再上传另外一张试试吧。</p>
-                    </div>
-                    <div class="avatar-edit-actions hide">
-                        <button id="cmd_avatar_submit" type="button" class="f-button f-button-blue f-button-h30">
-                            <strong>这张好，保存</strong>
-                        </button>
-                        <button id="cmd_avatar_cancel" type="button" class="f-button f-button-h30">
-                            <strong>重置</strong>
-                        </button>
-                    </div>
-                    <div class="clear">
-                    </div>
                 </div>
             </div>
         </div>
