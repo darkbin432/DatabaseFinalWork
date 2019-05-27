@@ -114,7 +114,8 @@
                 <div class="course-learn">
                     <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=221" class="button blue r2">立即学习</a>
                 </div>
-            </div>            <div class="course-item clearfix">
+            </div>
+            <div class="course-item clearfix">
             <div class="course-image-Simulation" style="background-color: rgb(27, 161, 226)">
                 Java程序设计
             </div>
@@ -134,7 +135,8 @@
             <div class="course-learn">
                 <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=269" class="button blue r2">立即学习</a>
             </div>
-        </div>            <div class="course-item clearfix">
+        </div>
+            <div class="course-item clearfix">
             <div class="course-image-Simulation" style="background-color: rgb(162, 0, 255)">
                 Python程序设计（174_175）
             </div>
@@ -203,6 +205,49 @@
 <script type="text/javascript">
     jQuery(function ($) {
         $("#user_info").html(user.name);
+    })
+</script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $.ajax({
+            type: "POST",
+            url: rootPath + "/api/getCourses",
+            dataType: "json",
+            data: {
+                username: user.username,
+            },
+            success: function (data) {
+                var html = "";
+                for (var i = 0; i < data.data.length; ++i){
+                    html += "<div class=\"course-item clearfix\">\n" +
+                        "                <div class=\"course-image-Simulation\" style=\"background-color: rgb(51, 153, 51)\">\n" +
+                        "                    " + data.data[i].title + "\n" +
+                        "                </div>\n" +
+                        "                <div class=\"course-info\">\n" +
+                        "                    <div class=\"course-title\">\n" +
+                        "                        <span>" + data.data[i].title + "</span>\n" +
+                        "                    </div>\n" +
+                        "                    <div class=\"course-memo\">\n" +
+                        "                     " + data.data[i].description + "\n" +
+                        "                    </div>\n" +
+                        "                    <div class=\"course-teacher\">\n" +
+                        "                        <span>" + data.data[i].teacherName + "</span>\n" +
+                        "                        &nbsp;&nbsp;&nbsp;\n" +
+                        "                        <img src='" + rootPath + "/Content/images/newframe/letter.png' style=\"float: left\">\n" +
+                        "                    </div>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"course-learn\">\n" +
+                        "                    <a href='" + rootPath + "/GoTest/MyStudy?id=" + data.data[i].id + "' class=\"button blue r2\">立即学习</a>\n" +
+                        "                </div>\n" +
+                        "            </div>";
+                }
+               $(".course-out .course-content").html(html);
+            },
+            error: function () {
+                alert("服务器请求失败")
+            }
+        })
     })
 </script>
 
