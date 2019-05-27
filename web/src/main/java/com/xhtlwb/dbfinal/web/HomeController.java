@@ -19,6 +19,21 @@ public class HomeController extends ApplicationController {
         return buildMAV("MyCourse.jsp");
     }
 
+    @RequestMapping(value = "/GoTest/MyStudy" ,method = RequestMethod.GET)
+    public ModelAndView MyStudy(Integer id){
+        return buildMAV("MyStudy.jsp");
+    }
+
+    @RequestMapping(value = "/GoTest/MyTest" ,method = RequestMethod.GET)
+    public ModelAndView MyTest(){
+        return buildMAV("MyTest.jsp");
+    }
+
+    @RequestMapping(value = "/Account" ,method = RequestMethod.GET)
+    public ModelAndView Account(){
+        return buildMAV("Account.jsp");
+    }
+
     @RequestMapping(value = "/api/login" ,method = RequestMethod.POST)
     public String login(){
         return "redirect:/GoTest/MyCourse";

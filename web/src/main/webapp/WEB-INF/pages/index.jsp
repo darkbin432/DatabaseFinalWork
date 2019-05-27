@@ -89,9 +89,6 @@
                 <div class="shuru">
                     <input type="image" src="<%=request.getContextPath()%>/Content/images/logon/denglu.png" style="border:none;float: left;" />
                 </div>
-                <div class="clearfix">
-                    <a style="color: #999; float:right;" href="<%=request.getContextPath()%>/Account/forgot">忘记密码?</a>
-                </div>
             </form>        </div>
     </div>
     <div class="product">

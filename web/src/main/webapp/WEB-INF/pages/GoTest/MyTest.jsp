@@ -1,11 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: 斌
-  Date: 2019/5/22
-  Time: 20:41
+  Date: 2019/5/27
+  Time: 14:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
@@ -16,7 +17,7 @@
 <html>
 <!--<![endif]-->
 <head>
-    <title>我的课程</title>
+    <title>我的考试</title>
     <script>
         var sitePath = '/';
     </script>
@@ -40,7 +41,7 @@
     <![endif]-->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="renderer" content="webkit">
-    <link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/Content/images/favicon.ico" type="image/x-icon" />
     <style>
         /*邮件个数提示样式*/
         .unreadtip {
@@ -87,115 +88,54 @@
 </div>
 <div id="wrapper">
 
-    <div class="breadcrumb-header-front">
-        <span class="breadcrumb-item">当前位置：我的课程</span>
+    <div class="span20"></div>
+    <div class="layout-relative">
+        <div id="loading" class="loading">正在加载数据…</div>
+        <div id="c-grid-ajax" class="paper-list">
+            <div class="paper clearfix">
+                <div class="paper-col tit">
+                    <div class="name">
+                        程序设计基础期末考试（17-18-1）
+                    </div>
+                    <div class="muted clearfix">
+                        <div class="muted-item">开始时间：17:30</div>
+                        <div class="muted-item">结束时间：19:00</div>
+                        <div class="muted-item">考试时长：90分钟</div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="paper-col pgs">
+                </div>
+                <div class="paper-col sc">
+                </div>
+                <div class="paper-col actions">
+                    已截止
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
     </div>
-    <div class="course-out">
-        <div class="course-content">
-            <div class="course-item clearfix">
-                <div class="course-image-Simulation" style="background-color: rgb(51, 153, 51)">
-                    程序设计基础
-                </div>
-                <div class="course-info">
-                    <div class="course-title">
-                        <span>程序设计基础（17-18-1）</span>
-                    </div>
-                    <div class="course-memo">
+    <script type="text/javascript">
+        $("#search_form").submit(function () {
+            if ($('.sort-key-button.enabled').hasClass('up')) {
+                $('#sortKey').val($('.sort-key-button.enabled').attr('data-val-keyname') + ' ASC');
+            } else {
+                $('#sortKey').val($('.sort-key-button.enabled').attr('data-val-keyname') + ' DESC');
+            }
 
-                    </div>
-                    <div class="course-teacher">
-                        <span>胡斌</span>
-                        &nbsp;&nbsp;&nbsp;
-                        <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                    </div>
-                </div>
-                <div class="course-learn">
-                    <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=221" class="button blue r2">立即学习</a>
-                </div>
-            </div>            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(27, 161, 226)">
-                Java程序设计
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Java程序设计</span>
-                </div>
-                <div class="course-memo">
-                    本课程是软件工程专业、计算机科学与技术专业的选修课课程。课程主要介绍Java的语法、类的定义、对象的创建与使用、接口、继承、多态、异常处理等，逐渐帮助学生建立起面向对象的思想。介绍JavaFX程序的基…
-                </div>
-                <div class="course-teacher">
-                    <span>姚争为</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=269" class="button blue r2">立即学习</a>
-            </div>
-        </div>            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(162, 0, 255)">
-                Python程序设计（174_175）
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Python程序设计（174_175）</span>
-                </div>
-                <div class="course-memo">
-                    面向无编程基础的学生，以培养程序设计能力为目标，选用Python语言作为描述语言。通过教学，使学生掌握程序设计的基本思想和方法、养成良好的程序设计风格，具有使用Python语言解决实际问题的能力，较熟…
-                </div>
-                <div class="course-teacher">
-                    <span>虞歌</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=367" class="button blue r2">立即学习</a>
-            </div>
-        </div>            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(162, 0, 255)">
-                Python程序设计实践（174_175）
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Python程序设计实践（174_175）</span>
-                </div>
-                <div class="course-memo">
-                    面向无编程基础的学生，以培养程序设计能力为目标，选用Python语言作为描述语言。通过教学，使学生掌握程序设计的基本思想和方法、养成良好的程序设计风格，具有使用Python语言解决实际问题的能力，较熟…
-                </div>
-                <div class="course-teacher">
-                    <span>虞歌</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=368" class="button blue r2">立即学习</a>
-            </div>
-        </div>            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(27, 161, 226)">
-                Python程序设计
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Python程序设计</span>
-                </div>
-                <div class="course-memo">
+        });
 
-                </div>
-                <div class="course-teacher">
-                    <span>虞剑波</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=412" class="button blue r2">立即学习</a>
-            </div>
-        </div>    </div>
-    </div>
-
-
+        $('.sort-key-button').click(function () {
+            if ($(this).hasClass('enabled')) {
+                $(this).toggleClass('up').toggleClass('down');
+            } else {
+                $('.sort-key-button.enabled').removeClass('enabled');
+                $(this).addClass('enabled')
+            }
+            $("#search_form").submit();
+        });
+    </script>
 
 </div>
 <script type="text/javascript">
@@ -243,11 +183,11 @@
         }, 5000);
     });
 
-    // $.post('/Message/UnreadedMsg', function (data) {
-    //     if (data > 0) {
-    //         $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
-    //     }
-    // });
+    $.post('/Message/UnreadedMsg', function (data) {
+        if (data > 0) {
+            $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
+        }
+    });
 </script>
 </body>
 </html>
