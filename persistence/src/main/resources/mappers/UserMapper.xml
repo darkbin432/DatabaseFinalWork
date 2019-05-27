@@ -43,4 +43,10 @@
         where username = #{username};
     </update>
 
+    <select id="login" parameterType="hashmap" resultType="com.xhtlwb.dbfinal.model.User">
+        select * from user
+        where username = #{username}
+        limit 1;
+    </select>
+
 </mapper>

@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author 斌
+ */
 @Controller
 @RequestMapping("/api")
 public class UserController {
@@ -22,21 +25,22 @@ public class UserController {
     @Resource
     private IUserService userService;
 
-//    @RequestMapping(value = "/login",method = RequestMethod.POST)
-//    @ResponseBody
-//    public ApiResult login(User user, HttpServletRequest request) {
-//        Subject subject = SecurityUtils.getSubject();
-//        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
-//        ApiResult apiResult = new ApiResult();
-//        try {
-//            subject.login(token);
-//            apiResult = userService.login(user);
-//            if (apiResult.getStatus() == 200){
-//                request.getSession().setAttribute("User", apiResult.getData());
-//            }
-//        } catch (AuthenticationException e) {
-//            apiResult.fail("帐号或密码错误");
-//        }
-//        return apiResult;
-//    }
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @ResponseBody
+    public ApiResult login(User user, HttpServletRequest request) {
+        System.out.println("--------" + user.getPassword());
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
+        ApiResult apiResult = new ApiResult();
+        try {
+            subject.login(token);
+            apiResult = userService.login(user);
+            if (apiResult.getStatus() == 200){
+                request.getSession().setAttribute("User", apiResult.getData());
+            }
+        } catch (AuthenticationException e) {
+            apiResult.fail("帐号或密码错误");
+        }
+        return apiResult;
+    }
 }

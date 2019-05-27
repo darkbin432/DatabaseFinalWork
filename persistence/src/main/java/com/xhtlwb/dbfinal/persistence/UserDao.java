@@ -8,4 +8,6 @@ public interface UserDao {
     void updateInfo(User user);
 
     void updatePassword(User user);
+
+    User login(String username);
 }

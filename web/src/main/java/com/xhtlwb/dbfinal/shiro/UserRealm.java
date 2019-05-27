@@ -1,5 +1,7 @@
 package com.xhtlwb.dbfinal.shiro;
 
+import com.xhtlwb.dbfinal.model.User;
+import com.xhtlwb.dbfinal.persistence.UserDao;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -16,8 +18,8 @@ import javax.annotation.Resource;
  * @date 2015年9月16日-下午4:21:18
  */
 public class UserRealm extends AuthorizingRealm {
-//	@Resource
-//	private UserDao userDao;
+	@Resource
+	private UserDao userDao;
 //	@Autowired
 //	private HeleLoginUserDao loginUserDao;
 //
@@ -56,23 +58,22 @@ public class UserRealm extends AuthorizingRealm {
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-//		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-//		String username = token.getUsername();
-//		char[] password = token.getPassword();
-////		String password = new String(token.getPassword());
-////		String password = MD5Util.md5Encrypt( new String(token.getPassword()));
-//		OrganizationMember user = null;
-//		// 判断是否填写用户名／密码
-//		if(StringUtils.isNotBlank(username) && password != null){
-//			user = userDao.login(username);
-//		}
-//
-//		if (user == null) {
-//			 throw new UnknownAccountException("账号密码错误");//没找到帐号
-//		}
-//
-//		return new SimpleAuthenticationInfo(user, user.getPassword(), user.getUsername());
-		return null;
+		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+		String username = token.getUsername();
+		char[] password = token.getPassword();
+//		String password = new String(token.getPassword());
+//		String password = MD5Util.md5Encrypt( new String(token.getPassword()));
+		User user = null;
+		// 判断是否填写用户名／密码
+		if(StringUtils.isNotBlank(username) && password != null){
+			user = userDao.login(username);
+		}
+
+		if (user == null) {
+			 throw new UnknownAccountException("账号密码错误");//没找到帐号
+		}
+
+		return new SimpleAuthenticationInfo(user, user.getPassword(), user.getUsername());
 	}
 
 	private static final String OR_OPERATOR = " or ";

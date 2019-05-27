@@ -36,6 +36,7 @@
     <script src="<%=request.getContextPath()%>/Scripts/jquery.validate.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.xbox.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/xutils.js" type="text/javascript"></script>
+    <script src="<%=request.getContextPath()%>/Scripts/staticUrl.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <script src="<%=request.getContextPath()%>/Scripts/html5.js"></script>
     <![endif]-->

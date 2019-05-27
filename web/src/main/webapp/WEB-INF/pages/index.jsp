@@ -16,20 +16,21 @@
 <html>
 <!--<![endif]-->
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="renderer" content="webkit">
     <title>用户登录</title>
     <script>
         var sitePath = '/index';
     </script>
-    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
-    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet"
+          href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
+    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css"/>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-1.5.1.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
@@ -37,6 +38,7 @@
     <script src="<%=request.getContextPath()%>/Scripts/jquery.xbox.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/xutils.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/json.js" type="text/javascript"></script>
+    <script src="<%=request.getContextPath()%>/Scripts/staticUrl.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <script src="<%=request.getContextPath()%>/Scripts/html5.js"></script>
     <![endif]-->
@@ -44,12 +46,15 @@
 </head>
 <body>
 
-<link href="<%=request.getContextPath()%>/Content/account.css" rel="stylesheet" />
+<link href="<%=request.getContextPath()%>/Content/account.css" rel="stylesheet"/>
 <script src="<%=request.getContextPath()%>/Scripts/jquery.validate.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Content/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/Content/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Content/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script type="text/javascript"
+        src="<%=request.getContextPath()%>/Content/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript"
+        src="<%=request.getContextPath()%>/Content/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Content/fancybox/jquery.fancybox-1.3.4.css"
+      media="screen"/>
 
 <script type="text/javascript">
     if (window.top && window.top != window.self) {
@@ -59,7 +64,7 @@
 <div class="l-top">
     <div class="l-topinner">
         <div class="logo">
-            <img src="<%=request.getContextPath()%>/Content/images/logon/logo.png" />
+            <img src="<%=request.getContextPath()%>/Content/images/logon/logo.png"/>
         </div>
         <div class="l-nav">
         </div>
@@ -74,22 +79,21 @@
             iDo是一个集作业、实验、模拟练习、测评、考务管理、题库管理于一体的在线实践评价平台
         </div>
         <div class="denglu">
-            <div class="validation-summary-valid" data-valmsg-summary="true"><span>登录失败.</span>
-                <ul><li style="display:none"></li>
-                </ul></div>
-            <form action="<%=request.getContextPath()%>/api/login" method="post"><input name="__RequestVerificationToken" type="hidden" value="9t3EUcRGH0Mkl5z8qoxI-RCMOxpX_7C4Thpzl_D2C9ZBSY9uDxiD4qEKb1ijR6gSOYxnOeOAi5vmfuiAMt4GZdpDnQniGCnr2BpDx4PPbBJDqcMS_HSeAvvndHPiKbBXNkzzyg2" />                <div class="welcome">欢迎您的登录</div>
-                <div class="shuru">
-                    <input type="text" id="UserName" name="username" class="shuru_style" data-val="true" data-val-required="必填"  placeholder="请输入账号" />
-                    <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
-                </div>
-                <div class="shuru">
-                    <input type="password" id="Password" name="password" class="shuru_style01" data-val="true" data-val-required="必填" placeholder="请输入密码" />
-                    <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
-                </div>
-                <div class="shuru">
-                    <input type="image" src="<%=request.getContextPath()%>/Content/images/logon/denglu.png" style="border:none;float: left;" />
-                </div>
-            </form>        </div>
+            <div class="welcome">欢迎您的登录</div>
+            <div class="shuru">
+                <input type="text" id="username" class="shuru_style" placeholder="请输入账号"/>
+                <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+            </div>
+            <div class="shuru">
+                <input type="password" id="password" class="shuru_style01" placeholder="请输入密码"/>
+                <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+            </div>
+            <div class="shuru">
+                <input type="image" src="<%=request.getContextPath()%>/Content/images/logon/denglu.png" id="loginBtn"
+                       style="border:none;float: left;"/>
+            </div>
+            <span class="error-msg" style="color: red;font-size: medium"></span>
+        </div>
     </div>
     <div class="product">
         共建共享在线精品课程
@@ -97,35 +101,35 @@
     <div class="productinfo">
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-daji.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-daji.png"/>
             </div>
             <div class="productinfo-item-name">大学计算机基础</div>
 
         </div>
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-Clanuage.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-Clanuage.png"/>
             </div>
             <div class="productinfo-item-name">C程序设计</div>
 
         </div>
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-Java.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-Java.png"/>
             </div>
             <div class="productinfo-item-name">Java程序设计</div>
 
         </div>
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-Python.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-Python.png"/>
             </div>
             <div class="productinfo-item-name">Python程序设计</div>
 
         </div>
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-aoa.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-aoa.png"/>
             </div>
             <div class="productinfo-item-name">高级Office</div>
 
@@ -133,21 +137,21 @@
 
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-c.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-c.png"/>
             </div>
             <div class="productinfo-item-name">C++程序设计</div>
 
         </div>
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-vb.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-vb.png"/>
             </div>
             <div class="productinfo-item-name">VB程序设计</div>
 
         </div>
         <div class="productinfo-item">
             <div class="productinfo-item-img">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-cam.png" />
+                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-cam.png"/>
             </div>
             <div class="productinfo-item-name">计算机原理</div>
 
@@ -163,7 +167,7 @@
             -->
     </div>
     <div class="footer">
-        杭州国际服务工程学院  数据库原理课程大作业  在线教学评测系统<br />
+        杭州国际服务工程学院 数据库原理课程大作业 在线教学评测系统<br/>
         v1.0 build at 20190522
     </div>
 </div>
@@ -181,13 +185,50 @@
 
         $("#cmd_next").live('click', function () {
             $('#PageIndex').val(parseInt($("#PageIndex").val()) + 1);
-            $.get('/Account/NoticeList', { PageIndex: $('#PageIndex').val() }, function (data) {
+            $.get('/Account/NoticeList', {PageIndex: $('#PageIndex').val()}, function (data) {
                 $(data).appendTo('.conttent01');
             });
             $(this).remove();
         });
 
     });
+</script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+
+        $("#loginBtn").click(function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var flag = false;
+            if (!flag) {
+                $.ajax({
+                    type: "POST",
+                    url: rootPath + "/api/login",
+                    dataType: "json",
+                    data: {
+                        username: username,
+                        password: password
+                    },
+                    success: function (data) {
+                        if (data.status === 200) {
+                            $(".error-msg").text("登录成功");
+                            setTimeout(function () {
+                                window.location.href = rootPath + '/GoTest/MyCourse';
+                            }, 500);
+                        } else {
+                            $(".error-msg").text("用户名或密码错误");
+                            $("#password").val("");
+                        }
+                    },
+                    error: function () {
+                        $(".error-msg").text("服务器请求失败");
+                    }
+                })
+            }
+        })
+
+    })
 </script>
 
 <script type="text/javascript">

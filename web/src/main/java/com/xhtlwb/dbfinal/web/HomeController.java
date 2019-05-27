@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController extends ApplicationController {
 
-    @RequestMapping(value = "/index" ,method = RequestMethod.GET)
+    @RequestMapping(value = {"/","/index"} ,method = RequestMethod.GET)
     public ModelAndView index(){
         return buildMAV("index.jsp");
     }
@@ -34,8 +34,8 @@ public class HomeController extends ApplicationController {
         return buildMAV("Account.jsp");
     }
 
-    @RequestMapping(value = "/api/login" ,method = RequestMethod.POST)
-    public String login(){
-        return "redirect:/GoTest/MyCourse";
-    }
+//    @RequestMapping(value = "/api/login" ,method = RequestMethod.POST)
+//    public String login(){
+//        return "redirect:/GoTest/MyCourse";
+//    }
 }
