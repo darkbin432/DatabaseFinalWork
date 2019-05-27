@@ -113,7 +113,6 @@
                                     登录帐号：</label>
                             </th>
                             <td colspan="3" id="loginUsername">
-                                2017212212069
                             </td>
                         </tr>
                         <tr>
@@ -122,7 +121,7 @@
                                     <em>*</em>真实姓名：</label>
                             </th>
                             <td colspan="3">
-                                <input type="text" class="f-textbox f-fade" id="RealName" name="RealName" value="罗伟斌" maxlength="10" data-val="true" data-val-required="该项必填" />
+                                <input type="text" class="f-textbox f-fade" id="RealName" name="RealName" value="" maxlength="10" data-val="true" data-val-required="该项必填" />
                                 <span class="field-validation-valid" data-valmsg-for="RealName" data-valmsg-replace="true"></span>
                             </td>
                         </tr>
@@ -170,24 +169,6 @@
                             </th>
                             <td>
                                 <input type="text" class="f-textbox f-fade" id="Address" name="Address" maxlength="100" style="width:350px;" />
-                            </td>
-                            <th class="fixed">
-                                <label class="text-bold">
-                                    邮编：</label>
-                            </th>
-                            <td>
-                                <input type="text" class="f-textbox f-fade f-number" id="Zip" name="Zip" maxlength="6" data-val="true" data-val-number="数字" />
-                                <span class="field-validation-valid" data-valmsg-for="Zip" data-valmsg-replace="true"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="fixed">
-                                <label class="text-bold">
-                                    Q Q：</label>
-                            </th>
-                            <td colspan="3">
-                                <input type="text" class="f-textbox f-fade" id="qq" name="Property05" maxlength="15" data-val="true" data-val-number="数字" />
-                                <span class="field-validation-valid" data-valmsg-for="Property05" data-valmsg-replace="true"></span>
                             </td>
                         </tr>
 
@@ -360,23 +341,21 @@
     </div>
     <script type="text/javascript">
         jQuery(function ($) {
+
             function init(){
                 $("#loginUsername").html(user.username);
-                $.ajax({
-                    type: "GET",
-                    url: rootPath + "/Account/getInfo",
-                    dataType: "json",
-                    data: {
-                        username: user.username,
-                    },
-                    success: function (data) {
-
-                    },
-                    error: function () {
-
-                    }
-                })
+                $("#RealName").val(user.name);
+                if (user.sex == 1){
+                    $("#Gender_1").click();
+                }else{
+                    $("#Gender_2").click();
+                }
+                $("#Mobile").val(user.mobile);
+                $("#Email").val(user.email);
+                $("#Address").val(user.address);
             }
+
+            init();
 
             $("#cmd_submit").click(function () {
                 var username = $("#loginUsername").html();
@@ -385,8 +364,6 @@
                 var mobile = $("#Mobile").val();
                 var email = $("#Email").val();
                 var address = $("#Address").val();
-                var zip = $("#Zip").val();
-                var qq = $("#qq").val();
 
             })
 
