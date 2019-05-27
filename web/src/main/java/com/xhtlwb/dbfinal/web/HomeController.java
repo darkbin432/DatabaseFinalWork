@@ -1,15 +1,19 @@
 package com.xhtlwb.dbfinal.web;
 
 import com.xhtlwb.dbfinal.ApplicationController;
+import com.xhtlwb.dbfinal.model.User;
+import com.xhtlwb.dbfinal.model.result.ApiResult;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController extends ApplicationController {
 
-    @RequestMapping(value = {"/","/index"} ,method = RequestMethod.GET)
+    @RequestMapping({"/","/index"})
     public ModelAndView index(){
         return buildMAV("index.jsp");
     }
@@ -34,8 +38,18 @@ public class HomeController extends ApplicationController {
         return buildMAV("Account.jsp");
     }
 
-//    @RequestMapping(value = "/api/login" ,method = RequestMethod.POST)
-//    public String login(){
-//        return "redirect:/GoTest/MyCourse";
-//    }
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout() {
+        currentSubjectLogout();
+        return "redirect:/index";
+    }
+
+    @RequestMapping("getCurrentUser")
+    @ResponseBody
+    public ApiResult getCurrentUser(){
+        User user= (User) SecurityUtils.getSubject().getPrincipal();
+        ApiResult apiResult=new ApiResult();
+        apiResult.success(user);
+        return apiResult;
+    }
 }

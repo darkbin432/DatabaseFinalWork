@@ -92,7 +92,7 @@
                 <input type="image" src="<%=request.getContextPath()%>/Content/images/logon/denglu.png" id="loginBtn"
                        style="border:none;float: left;"/>
             </div>
-            <span class="error-msg" style="color: red;font-size: medium"></span>
+            <span class="error-msg" style="color: red;font-size: medium;"></span>
         </div>
     </div>
     <div class="product">
@@ -200,8 +200,16 @@
         $("#loginBtn").click(function () {
             var username = $("#username").val();
             var password = $("#password").val();
-            var flag = false;
-            if (!flag) {
+            var flag = true;
+            if (flag && username == ""){
+                $(".error-msg").text("请输入用户名");
+                flag = false;
+            }
+            if (flag && password == ""){
+                $(".error-msg").text("请输入密码");
+                flag = false;
+            }
+            if (flag) {
                 $.ajax({
                     type: "POST",
                     url: rootPath + "/api/login",
@@ -227,6 +235,12 @@
                 })
             }
         })
+
+        $(document).keydown(function(event){
+            if(event.keyCode===13){
+                $("#loginBtn").click();
+            }
+        });
 
     })
 </script>

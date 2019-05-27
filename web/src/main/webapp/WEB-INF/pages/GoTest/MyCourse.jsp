@@ -62,6 +62,7 @@
     </style>
 </head>
 <body>
+<%@ include file="../header.jsp" %>
 <div id="header">
     <div id="header_inner">
         <div id="header_logo" class="fixpng">
@@ -75,7 +76,7 @@
         </div>
         <div id="user_actions">
             <span id="user_info">罗伟斌</span>
-            <a href="<%=request.getContextPath()%>/account/LogOff" id="cmd_logout" title="退出系统">
+            <a href="<%=request.getContextPath()%>/logout" id="cmd_logout" title="退出系统">
                 <!--[if IE 6]>
                 <div style="height:100%; width:100%;"></div>
                 <![endif]-->
@@ -204,7 +205,7 @@
         $(document.body).ajaxError(function (event, request, settings, ex) {
             if (request.status == 900) {
                 $.alert("由于您长时间没有与页面交互，会话已经过期。 需要重新登录系统！ ", function () {
-                    window.location = '/account/logoff';
+                    window.location = rootPath + '/logout';
                     return false;
                 });
             } else {

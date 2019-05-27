@@ -63,6 +63,7 @@
     </style>
 </head>
 <body>
+<%@ include file="header.jsp" %>
 <div id="header">
     <div id="header_inner">
         <div id="header_logo" class="fixpng">
@@ -76,7 +77,7 @@
         </div>
         <div id="user_actions">
             <span id="user_info">罗伟斌</span>
-            <a href="<%=request.getContextPath()%>/" id="cmd_logout" title="退出系统">
+            <a href="<%=request.getContextPath()%>/logout" id="cmd_logout" title="退出系统">
                 <!--[if IE 6]>
                 <div style="height:100%; width:100%;"></div>
                 <![endif]-->
@@ -102,7 +103,7 @@
                 <li><a href="#tabs-3">头像设置</a></li>
             </ul>
             <div id="tabs-1">
-                <form action="/Account/Edit?m=1" method="post"><div class="feed-hd span30" style="line-height: 30px; font-size: 14px;">
+                <div><div class="feed-hd span30" style="line-height: 30px; font-size: 14px;">
                     基本资料
                 </div>
                     <table class="f-tbl">
@@ -111,7 +112,7 @@
                                 <label class="text-bold">
                                     登录帐号：</label>
                             </th>
-                            <td colspan="3">
+                            <td colspan="3" id="loginUsername">
                                 2017212212069
                             </td>
                         </tr>
@@ -185,7 +186,7 @@
                                     Q Q：</label>
                             </th>
                             <td colspan="3">
-                                <input type="text" class="f-textbox f-fade" id="Property05" name="Property05" maxlength="15" data-val="true" data-val-number="数字" />
+                                <input type="text" class="f-textbox f-fade" id="qq" name="Property05" maxlength="15" data-val="true" data-val-number="数字" />
                                 <span class="field-validation-valid" data-valmsg-for="Property05" data-valmsg-replace="true"></span>
                             </td>
                         </tr>
@@ -196,9 +197,9 @@
                             <strong>修改好了，保存</strong>
                         </button>
                     </div>
-                </form>        </div>
+                </div>        </div>
             <div id="tabs-2">
-                <form id="form_safe" action="javascript:;">
+                <div id="form_safe">
                     <div class="feed-hd span30" style="line-height: 30px; font-size: 14px;">
                         密码修改
                     </div>
@@ -250,7 +251,7 @@
                             </td>
                         </tr>
                     </table>
-                </form>
+                </div>
             </div>
             <div id="tabs-3">
                 <div class="avatar-feed">
@@ -358,6 +359,40 @@
         </div>
     </div>
     <script type="text/javascript">
+        jQuery(function ($) {
+            function init(){
+                $("#loginUsername").html(user.username);
+                $.ajax({
+                    type: "GET",
+                    url: rootPath + "/Account/getInfo",
+                    dataType: "json",
+                    data: {
+                        username: user.username,
+                    },
+                    success: function (data) {
+
+                    },
+                    error: function () {
+
+                    }
+                })
+            }
+
+            $("#cmd_submit").click(function () {
+                var username = $("#loginUsername").html();
+                var realname = $("#RealName").val();
+                var sex = $("input[name='Sex']:checked").val();
+                var mobile = $("#Mobile").val();
+                var email = $("#Email").val();
+                var address = $("#Address").val();
+                var zip = $("#Zip").val();
+                var qq = $("#qq").val();
+
+            })
+
+        })
+    </script>
+    <script type="text/javascript">
         ///文件上传回调函数。
         function uploadCallback(fileObj, response, data) {
             //填写返回信息
@@ -441,7 +476,7 @@
         $(document.body).ajaxError(function (event, request, settings, ex) {
             if (request.status == 900) {
                 $.alert("由于您长时间没有与页面交互，会话已经过期。 需要重新登录系统！ ", function () {
-                    window.location = '/account/logoff';
+                    window.location = rootPath + '/logout';
                     return false;
                 });
             } else {
@@ -481,11 +516,7 @@
         }, 5000);
     });
 
-    $.post('/Message/UnreadedMsg', function (data) {
-        if (data > 0) {
-            $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
-        }
-    });
+
 </script>
 </body>
 </html>

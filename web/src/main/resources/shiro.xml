@@ -11,7 +11,7 @@
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/index" />
-		<property name="successUrl" value="/index" />
+		<property name="successUrl" value="/GoTest/MyCourse" />
 		<property name="unauthorizedUrl" value="/unauth" />
 		<!-- <property name="filters"> -->
 		<!-- <util:map> -->
