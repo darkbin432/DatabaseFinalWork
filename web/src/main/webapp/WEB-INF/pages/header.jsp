@@ -9,6 +9,8 @@
 <html>
 <script>
     var user;
+    var nowCourseId;
+    var nowExamId;
     jQuery(
         function ($) {
             $.ajax({

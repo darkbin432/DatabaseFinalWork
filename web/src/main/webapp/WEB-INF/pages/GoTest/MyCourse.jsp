@@ -94,109 +94,110 @@
     </div>
     <div class="course-out">
         <div class="course-content">
-            <div class="course-item clearfix">
-                <div class="course-image-Simulation" style="background-color: rgb(51, 153, 51)">
-                    程序设计基础
-                </div>
-                <div class="course-info">
-                    <div class="course-title">
-                        <span>程序设计基础（17-18-1）</span>
-                    </div>
-                    <div class="course-memo">
+            <%--<div class="course-item clearfix">--%>
+                <%--<div class="course-image-Simulation" style="background-color: rgb(51, 153, 51)">--%>
+                    <%--程序设计基础--%>
+                <%--</div>--%>
+                <%--<div class="course-info">--%>
+                    <%--<div class="course-title">--%>
+                        <%--<span>程序设计基础（17-18-1）</span>--%>
+                    <%--</div>--%>
+                    <%--<div class="course-memo">--%>
 
-                    </div>
-                    <div class="course-teacher">
-                        <span>胡斌</span>
-                        &nbsp;&nbsp;&nbsp;
-                        <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                    </div>
-                </div>
-                <div class="course-learn">
-                    <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=221" class="button blue r2">立即学习</a>
-                </div>
-            </div>
-            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(27, 161, 226)">
-                Java程序设计
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Java程序设计</span>
-                </div>
-                <div class="course-memo">
-                    本课程是软件工程专业、计算机科学与技术专业的选修课课程。课程主要介绍Java的语法、类的定义、对象的创建与使用、接口、继承、多态、异常处理等，逐渐帮助学生建立起面向对象的思想。介绍JavaFX程序的基…
-                </div>
-                <div class="course-teacher">
-                    <span>姚争为</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=269" class="button blue r2">立即学习</a>
-            </div>
+                    <%--</div>--%>
+                    <%--<div class="course-teacher">--%>
+                        <%--<span>胡斌</span>--%>
+                        <%--&nbsp;&nbsp;&nbsp;--%>
+                        <%--<img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="course-learn">--%>
+                    <%--<a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=221" class="button blue r2">立即学习</a>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="course-item clearfix">--%>
+            <%--<div class="course-image-Simulation" style="background-color: rgb(27, 161, 226)">--%>
+                <%--Java程序设计--%>
+            <%--</div>--%>
+            <%--<div class="course-info">--%>
+                <%--<div class="course-title">--%>
+                    <%--<span>Java程序设计</span>--%>
+                <%--</div>--%>
+                <%--<div class="course-memo">--%>
+                    <%--本课程是软件工程专业、计算机科学与技术专业的选修课课程。课程主要介绍Java的语法、类的定义、对象的创建与使用、接口、继承、多态、异常处理等，逐渐帮助学生建立起面向对象的思想。介绍JavaFX程序的基…--%>
+                <%--</div>--%>
+                <%--<div class="course-teacher">--%>
+                    <%--<span>姚争为</span>--%>
+                    <%--&nbsp;&nbsp;&nbsp;--%>
+                    <%--<img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="course-learn">--%>
+                <%--<a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=269" class="button blue r2">立即学习</a>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+            <%--<div class="course-item clearfix">--%>
+            <%--<div class="course-image-Simulation" style="background-color: rgb(162, 0, 255)">--%>
+                <%--Python程序设计（174_175）--%>
+            <%--</div>--%>
+            <%--<div class="course-info">--%>
+                <%--<div class="course-title">--%>
+                    <%--<span>Python程序设计（174_175）</span>--%>
+                <%--</div>--%>
+                <%--<div class="course-memo">--%>
+                    <%--面向无编程基础的学生，以培养程序设计能力为目标，选用Python语言作为描述语言。通过教学，使学生掌握程序设计的基本思想和方法、养成良好的程序设计风格，具有使用Python语言解决实际问题的能力，较熟…--%>
+                <%--</div>--%>
+                <%--<div class="course-teacher">--%>
+                    <%--<span>虞歌</span>--%>
+                    <%--&nbsp;&nbsp;&nbsp;--%>
+                    <%--<img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="course-learn">--%>
+                <%--<a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=367" class="button blue r2">立即学习</a>--%>
+            <%--</div>--%>
+        <%--</div>            <div class="course-item clearfix">--%>
+            <%--<div class="course-image-Simulation" style="background-color: rgb(162, 0, 255)">--%>
+                <%--Python程序设计实践（174_175）--%>
+            <%--</div>--%>
+            <%--<div class="course-info">--%>
+                <%--<div class="course-title">--%>
+                    <%--<span>Python程序设计实践（174_175）</span>--%>
+                <%--</div>--%>
+                <%--<div class="course-memo">--%>
+                    <%--面向无编程基础的学生，以培养程序设计能力为目标，选用Python语言作为描述语言。通过教学，使学生掌握程序设计的基本思想和方法、养成良好的程序设计风格，具有使用Python语言解决实际问题的能力，较熟…--%>
+                <%--</div>--%>
+                <%--<div class="course-teacher">--%>
+                    <%--<span>虞歌</span>--%>
+                    <%--&nbsp;&nbsp;&nbsp;--%>
+                    <%--<img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="course-learn">--%>
+                <%--<a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=368" class="button blue r2">立即学习</a>--%>
+            <%--</div>--%>
+        <%--</div>            <div class="course-item clearfix">--%>
+            <%--<div class="course-image-Simulation" style="background-color: rgb(27, 161, 226)">--%>
+                <%--Python程序设计--%>
+            <%--</div>--%>
+            <%--<div class="course-info">--%>
+                <%--<div class="course-title">--%>
+                    <%--<span>Python程序设计</span>--%>
+                <%--</div>--%>
+                <%--<div class="course-memo">--%>
+
+                <%--</div>--%>
+                <%--<div class="course-teacher">--%>
+                    <%--<span>虞剑波</span>--%>
+                    <%--&nbsp;&nbsp;&nbsp;--%>
+                    <%--<img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="course-learn">--%>
+                <%--<a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=412" class="button blue r2">立即学习</a>--%>
+            <%--</div>--%>
+        <%--</div>    --%>
         </div>
-            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(162, 0, 255)">
-                Python程序设计（174_175）
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Python程序设计（174_175）</span>
-                </div>
-                <div class="course-memo">
-                    面向无编程基础的学生，以培养程序设计能力为目标，选用Python语言作为描述语言。通过教学，使学生掌握程序设计的基本思想和方法、养成良好的程序设计风格，具有使用Python语言解决实际问题的能力，较熟…
-                </div>
-                <div class="course-teacher">
-                    <span>虞歌</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=367" class="button blue r2">立即学习</a>
-            </div>
-        </div>            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(162, 0, 255)">
-                Python程序设计实践（174_175）
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Python程序设计实践（174_175）</span>
-                </div>
-                <div class="course-memo">
-                    面向无编程基础的学生，以培养程序设计能力为目标，选用Python语言作为描述语言。通过教学，使学生掌握程序设计的基本思想和方法、养成良好的程序设计风格，具有使用Python语言解决实际问题的能力，较熟…
-                </div>
-                <div class="course-teacher">
-                    <span>虞歌</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=368" class="button blue r2">立即学习</a>
-            </div>
-        </div>            <div class="course-item clearfix">
-            <div class="course-image-Simulation" style="background-color: rgb(27, 161, 226)">
-                Python程序设计
-            </div>
-            <div class="course-info">
-                <div class="course-title">
-                    <span>Python程序设计</span>
-                </div>
-                <div class="course-memo">
-
-                </div>
-                <div class="course-teacher">
-                    <span>虞剑波</span>
-                    &nbsp;&nbsp;&nbsp;
-                    <img src="<%=request.getContextPath()%>/Content/images/newframe/letter.png" style="float: left">
-                </div>
-            </div>
-            <div class="course-learn">
-                <a href="<%=request.getContextPath()%>/GoTest/MyStudy?courseId=412" class="button blue r2">立即学习</a>
-            </div>
-        </div>    </div>
     </div>
 
 
@@ -212,13 +213,12 @@
     jQuery(function ($) {
         $.ajax({
             type: "POST",
-            contentType: "application/json",
             url: rootPath + "/api/getCourses",
             dataType: "json",
             async: false,
-            data: JSON.stringify({
-                username:user.username
-            }),
+            data: {
+                username: user.username,
+            },
             success: function (data) {
                 var html = "";
                 for (var i = 0; i < data.data.length; ++i){
@@ -230,8 +230,7 @@
                         "                    <div class=\"course-title\">\n" +
                         "                        <span>" + data.data[i].title + "</span>\n" +
                         "                    </div>\n" +
-                        "                    <div class=\"course-memo\">\n" +
-                        "                     " + data.data[i].description + "\n" +
+                        "                    <div class=\"course-memo\">\n" + data.data[i].description +
                         "                    </div>\n" +
                         "                    <div class=\"course-teacher\">\n" +
                         "                        <span>" + data.data[i].teacherName + "</span>\n" +
@@ -250,6 +249,10 @@
                 alert("服务器请求失败")
             }
         })
+
+
+
+
     })
 </script>
 

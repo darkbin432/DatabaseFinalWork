@@ -107,69 +107,17 @@
             <div class="learn-line"></div>
             <div class="learn-content">本课程是软件工程专业、计算机科学与技术专业的选修课课程。课程主要介绍Java的语法、类的定义、对象的创建与使用、接口、继承、多态、异常处理等，逐渐帮助学生建立起面向对象的思想。介绍JavaFX程序的基本结构、JavaFX的常用组件和事件驱动编程。介绍列表、泛型、映射和集合等数据结构和算法，以及Java的JDBC技术。</div>
         </div>
-        <div class="learn-msg">
-            <div class="learn-icon">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-notice.png" />&nbsp;&nbsp;消息通知
-            </div>
-            <div class="learn-line"></div>
-            <div class="learn-content">
-                <ul>
-                    <li>
-                        <a class="iframe" href="/Notice/Details/121">12.7综合实验通知</a>
-                        <span>2018-12-04</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="learn-details">
             <div class="learn-title">
                 <span class="learn-study">我的学习</span>
             </div>
             <div class="learn-item">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-resource.png" />
-                <span class="learn-name">学习课件</span>
-                <span class="learn-resource">共 57 个</span>
-                <span class="learn-button"><a href="/GoTest/MyCourseware?courseId=269" class="button blue r2">查 看</a></span>
-            </div>
-            <div class="learn-item">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-resource.png" />
-                <span class="learn-name">学习资料</span>
-                <span class="learn-resource">共 31 个</span>
-                <span class="learn-button"><a href="/GoTest/MyCourseResource?courseId=269" class="button blue r2">查 看</a></span>
-            </div>
-            <div class="learn-item">
                 <img src="<%=request.getContextPath()%>/Content/images/newframe/course-homework.png" />
                 <span class="learn-name">我的作业</span>
                 <span class="learn-resource">共 9 个</span>
-                <span class="learn-button"><a href="/GoTest/MyHomeWork?courseId=269" class="button blue r2">查 看</a></span>
+                <span class="learn-button"><a href="<%=request.getContextPath()%>/GoTest/MyExam?id=1" class="button blue r2">查 看</a></span>
             </div>
-            <div class="learn-item">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-mutualjudge.png" />
-                <span class="learn-name">互评任务</span>
-                <span class="learn-resource">
-                共 0 个
-            </span>
-                <span class="learn-button">
-                <a href="/GoMutualJudge/MyJudgeList?courseId=269" class="button blue r2">查 看</a>
-            </span>
-            </div>
-            <div class="learn-item">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-experiment.png" />
-                <span class="learn-name">我的实验</span>
-                <span class="learn-resource">共 10 个</span>
-                <span class="learn-button"><a href="/GoTest/MyTask?courseId=269" class="button blue r2">查 看</a></span>
-            </div>
-            <div class="learn-item">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-analogtest.png" />
-                <span class="learn-name">模拟练习</span>
-                <span class="learn-resource">共 0 个</span>
-                <span class="learn-button"><a href="/GoTest/MyExercise?courseId=269" class="button blue r2">查 看</a></span>
-            </div>
-            <div class="learn-item">
-                <img src="<%=request.getContextPath()%>/Content/images/newframe/course-discuss.png" />
-                <span class="learn-name">讨论区</span>
-                <span class="learn-button"><a href="/Admin/BBS?courseId=269" class="button blue r2">查 看</a></span>
-            </div>
+
         </div>
     </div>
 
@@ -193,6 +141,31 @@
 <script type="text/javascript">
     jQuery(function ($) {
         $("#user_info").html(user.name);
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        var id = getQueryString("id");
+        $.ajax({
+            type: "POST",
+            url: rootPath + "/api/getCourse",
+            dataType: "json",
+            async: false,
+            data: {
+                id: id,
+            },
+            success: function (data) {
+                $(".breadcrumb-item").html(data.data[0].title);
+                $(".learn-content").html(data.data[0].description);
+            },
+            error: function () {
+                alert("服务器请求失败")
+            }
+        })
     })
 </script>
 

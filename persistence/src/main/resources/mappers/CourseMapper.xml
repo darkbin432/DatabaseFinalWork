@@ -42,7 +42,7 @@
         LIMIT 1;
     </select>
 
-    <select id="getAllCourse" parameterType="com.xhtlwb.dbfinal.model.Course" resultType="com.xhtlwb.dbfinal.model.param.CourseParam">
+    <select id="getAllCourse" parameterType="com.xhtlwb.dbfinal.model.param.CourseParam" resultType="com.xhtlwb.dbfinal.model.Course">
         SELECT course.*, u1.name AS teacher_name
         FROM course LEFT JOIN `user` AS u1 ON course.teacher_id = u1.id
         LEFT JOIN user_course_relationship AS u2 ON course.id = u2.id

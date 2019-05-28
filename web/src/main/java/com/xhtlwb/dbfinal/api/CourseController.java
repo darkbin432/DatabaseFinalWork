@@ -22,7 +22,7 @@ public class CourseController {
 
     @RequestMapping(value = "/getCourses",method = RequestMethod.POST)
     @ResponseBody
-    private ApiResult getCourses(@RequestBody CourseParam courseParam) {
+    private ApiResult getCourses(CourseParam courseParam) {
         return courseService.getAllCourse(courseParam);
     }
 }

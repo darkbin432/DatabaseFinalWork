@@ -149,6 +149,50 @@
 </script>
 
 <script type="text/javascript">
+    jQuery(function ($) {
+        $.ajax({
+            type: "POST",
+            url: rootPath + "/api/getExams",
+            dataType: "json",
+            async: false,
+            data: {
+                username: user.username,
+            },
+            success: function (data) {
+                var html = "";
+                for (var i = 0; i < data.data.length; ++i){
+                    var examTime = "100分钟";
+                    var examStatus = "已截止";
+                    html += "<div class=\"paper clearfix\">\n" +
+                        "                <div class=\"paper-col tit\">\n" +
+                        "                    <div class=\"name\">\n" + data.data[i].title +
+                        "                    </div>\n" +
+                        "                    <div class=\"muted clearfix\">\n" +
+                        "                        <div class=\"muted-item\">开始时间：" + data.data[i].beginTime + "</div>\n" +
+                        "                        <div class=\"muted-item\">结束时间：" + data.data[i].endTime + "</div>\n" +
+                        "                        <div class=\"muted-item\">考试时长：" + examTime + "</div>\n" +
+                        "                        <div class=\"clearfix\"></div>\n" +
+                        "                    </div>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"paper-col pgs\">\n" +
+                        "                </div>\n" +
+                        "                <div class=\"paper-col sc\">\n" +
+                        "                </div>\n" +
+                        "                <div class=\"paper-col actions\">\n" + examStatus +
+                        "                </div>\n" +
+                        "                <div class=\"clearfix\"></div>\n" +
+                        "            </div>";
+                }
+                $("#c-grid-ajax").html(html);
+            },
+            error: function () {
+                alert("服务器请求失败")
+            }
+        })
+    })
+</script>
+
+<script type="text/javascript">
     (function ($) {
         $(document.body).ajaxError(function (event, request, settings, ex) {
             if (request.status == 900) {
