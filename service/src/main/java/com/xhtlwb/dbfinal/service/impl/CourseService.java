@@ -1,6 +1,7 @@
 package com.xhtlwb.dbfinal.service.impl;
 
 import com.xhtlwb.dbfinal.model.Course;
+import com.xhtlwb.dbfinal.model.param.CourseParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 import com.xhtlwb.dbfinal.persistence.CourseDao;
 import com.xhtlwb.dbfinal.service.ICourseService;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Xueht
@@ -66,7 +68,20 @@ public class CourseService implements ICourseService {
             Course course = courseDao.getOne(id);
             apiResult.success(course);
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
+            apiResult.fail("获取失败");
+        }
+        return apiResult;
+    }
+
+    @Override
+    public ApiResult getAllCourse(CourseParam courseParam) {
+        ApiResult apiResult = new ApiResult();
+        try{
+            List<Course> lc = courseDao.getAllCourse(courseParam);
+            apiResult.success(lc);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("获取失败");
         }
         return apiResult;

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2019-05-18 21:46:17
+Date: 2019-05-28 19:33:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -125,7 +125,7 @@ CREATE TABLE `user` (
   `name` varchar(255) NOT NULL,
   `sex` tinyint(1) NOT NULL,
   `mobile` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
   `address` varchar(255) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `type` tinyint(1) NOT NULL,
@@ -137,6 +137,24 @@ CREATE TABLE `user` (
 
 -- ----------------------------
 -- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', 'admin', '202CB962AC59075B964B07152D234B70', '123', '123', '123', '123', '123', '123', '1', '2019-05-28 18:58:37', '2019-05-28 18:58:45', '1');
+
+-- ----------------------------
+-- Table structure for `user_course_relationship`
+-- ----------------------------
+DROP TABLE IF EXISTS `user_course_relationship`;
+CREATE TABLE `user_course_relationship` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `created_time` datetime NOT NULL,
+  `updated_time` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_course_relationship
 -- ----------------------------
 
 -- ----------------------------

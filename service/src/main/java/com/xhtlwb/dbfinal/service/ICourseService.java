@@ -1,6 +1,7 @@
 package com.xhtlwb.dbfinal.service;
 
 import com.xhtlwb.dbfinal.model.Course;
+import com.xhtlwb.dbfinal.model.param.CourseParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 
 /**
@@ -14,4 +15,6 @@ public interface ICourseService {
     ApiResult update(Course course);
 
     ApiResult getOne(Integer id);
+
+    ApiResult getAllCourse(CourseParam courseParam);
 }

@@ -212,11 +212,13 @@
     jQuery(function ($) {
         $.ajax({
             type: "POST",
+            contentType: "application/json",
             url: rootPath + "/api/getCourses",
             dataType: "json",
-            data: {
-                username: user.username,
-            },
+            async: false,
+            data: JSON.stringify({
+                username:user.username
+            }),
             success: function (data) {
                 var html = "";
                 for (var i = 0; i < data.data.length; ++i){

@@ -2,6 +2,9 @@ package com.xhtlwb.dbfinal.persistence;
 
 import com.xhtlwb.dbfinal.model.User;
 
+/**
+ * @author Xueht
+ */
 public interface UserDao {
     User getUser(String username);
 

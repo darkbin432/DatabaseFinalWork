@@ -7,6 +7,7 @@ public class Course extends Entity{
     private String title;
     private String description;
     private Integer teacherId;
+    private String teacherName;
 
     public String getTitle() {
         return title;
@@ -30,5 +31,13 @@ public class Course extends Entity{
 
     public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 }

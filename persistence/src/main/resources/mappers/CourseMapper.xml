@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xhtlwb.dbfinal.persistence.CourseDao">
 
-<!--    <insert id="insertInfo" parameterType="com.xhtlwb.dbfinal.model.Course" useGeneratedKeys="true" keyProperty="id">-->
-<!--        INSERT INTO course(title, description, teacher_id, created_time, updated_time, status)-->
-<!--        VALUES (#{title}, #{description}, #{teacherId}, now(), now(), #{status});-->
-<!--    </insert>-->
+    <insert id="insertInfo" parameterType="com.xhtlwb.dbfinal.model.Course" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO course(title, description, teacher_id, created_time, updated_time, status)
+        VALUES (#{title}, #{description}, #{teacherId}, now(), now(), #{status});
+    </insert>
 
-    <update id="updateInfo" parameterType="com.xhtlwb.dbfinal.model.Course">
+    <update id="updateInfo" parameterType="com.xhtlwb.dbfinal.model.param.CourseParam">
         UPDATE course
         SET
         <if test="title!=null">
@@ -35,26 +35,33 @@
         WHERE id = #{id}
     </update>
 
-    <select id="getOne" parameterType="int" resultType="com.xhtlwb.dbfinal.model.Course">
+    <select id="getOne" parameterType="int" resultType="com.xhtlwb.dbfinal.model.param.CourseParam">
         SELECT *
         FROM course
         WHERE id = #{id} AND status = 1
         LIMIT 1;
     </select>
 
-    <select id="getAllCourse" parameterType="com.xhtlwb.dbfinal.model.Course" resultType="com.xhtlwb.dbfinal.model.Course">
-        SELECT *
-        FROM course
+    <select id="getAllCourse" parameterType="com.xhtlwb.dbfinal.model.Course" resultType="com.xhtlwb.dbfinal.model.param.CourseParam">
+        SELECT course.*, u1.name AS teacher_name
+        FROM course LEFT JOIN `user` AS u1 ON course.teacher_id = u1.id
+        LEFT JOIN user_course_relationship AS u2 ON course.id = u2.id
         <where>
-            status = 1
-            <if test="title!=null">
-                AND title LIKE "%"#{title}
-            </if>
+            course.status = 1
+            AND u1.status = 1
+            AND u1.type = 1
+            AND u2.status = 1
             <if test="teacherId!=null">
-                AND teacher_id = #{teacherId}
+                AND course.teacher_id = #{teacherId}
+            </if>
+            <if test="title!=null">
+                AND course.title LIKE "%"#{title}"%"
+            </if>
+            <if test="username!=null">
+                AND u2.username = #{username}
             </if>
         </where>
-        ORDER BY id DESC
+        ORDER BY course.id DESC
         <if test="offset!=null and size!=null">
             LIMIT #{offset},#{size};
         </if>
