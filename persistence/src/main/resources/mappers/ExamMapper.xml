@@ -45,22 +45,24 @@
         WHERE id = #{id} AND status = 1
     </select>
 
-    <select id="getAllExam" parameterType="hashmap" resultType="com.xhtlwb.dbfinal.model.Exam">
+    <select id="getAllExam" parameterType="com.xhtlwb.dbfinal.model.param.ExamParam" resultType="com.xhtlwb.dbfinal.model.Exam">
         SELECT *
-        FROM exam
+        FROM exam LEFT JOIN user_exam_relationship ON exam.id = user_exam_relationship.exam_id
         <where>
-            status = 1
+            exam.status = 1
+            AND user_exam_relationship.status = 1
+            AND user_exam_relationship.user_username = #{username}
             <if test="title!=null">
-                AND title LIKE "%"#{title}"%"
+                AND exam.title LIKE "%"#{title}"%"
             </if>
             <if test="courseId!=null">
-                AND course_id = #{courseId}
+                AND exam.course_id = #{courseId}
             </if>
             <if test="teacherId!=null">
-                AND teacherId = #{teacherId}
+                AND exam.teacher_id = #{teacherId}
             </if>
         </where>
-        ORDER BY id DESC
+        ORDER BY exam.id DESC
         <if test="offset!=null and size!=null">
             LIMIT #{offset},#{size};
         </if>

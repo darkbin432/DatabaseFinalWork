@@ -43,4 +43,14 @@
         SET status = 0
         WHERE id = #{id}
     </update>
+
+    <select id="getAllProblem" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam" resultType="com.xhtlwb.dbfinal.model.Problem">
+        SELECT *
+        FROM problem LEFT JOIN exam_problem_relationship ON problem.id = exam_problem_relationship.problem_id
+        <where>
+            problem.status = 1
+            AND exam_problem_relationship = 1
+            AND exam_problem_relationship.exam_id = #{examId}
+        </where>
+    </select>
 </mapper>

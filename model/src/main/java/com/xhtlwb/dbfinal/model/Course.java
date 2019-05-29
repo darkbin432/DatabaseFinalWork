@@ -8,6 +8,7 @@ public class Course extends Entity{
     private String description;
     private Integer teacherId;
     private String teacherName;
+    private Integer examCount;
 
     public String getTitle() {
         return title;
@@ -39,5 +40,13 @@ public class Course extends Entity{
 
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
+    }
+
+    public Integer getExamCount() {
+        return examCount;
+    }
+
+    public void setExamCount(Integer examCount) {
+        this.examCount = examCount;
     }
 }

@@ -35,10 +35,14 @@
         WHERE id = #{id}
     </update>
 
-    <select id="getOne" parameterType="int" resultType="com.xhtlwb.dbfinal.model.param.CourseParam">
-        SELECT *
-        FROM course
-        WHERE id = #{id} AND status = 1
+    <select id="getOne" parameterType="int" resultType="com.xhtlwb.dbfinal.model.Course">
+        SELECT course.*, COUNT(exam.id) AS exam_count
+        FROM course LEFT JOIN exam ON exam.course_id = course.id
+        <where>
+            course.status = 1
+            AND exam.status = 1
+            AND course.id = #{id}
+        </where>
         LIMIT 1;
     </select>
 

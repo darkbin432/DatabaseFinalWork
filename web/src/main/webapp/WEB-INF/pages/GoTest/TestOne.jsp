@@ -218,7 +218,7 @@
             dataType: "json",
             async: false,
             data: {
-                id: id,
+                examId: id,
             },
             success: function (data) {
                 var html = "<div class=\"question-item\" id=\"" + id + "\" data-type=\"SINGLE_CHIOCE\" data-type-judgeonsave=\"0\">\n" +

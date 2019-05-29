@@ -1,6 +1,7 @@
 package com.xhtlwb.dbfinal.service.impl;
 
 import com.xhtlwb.dbfinal.model.Exam;
+import com.xhtlwb.dbfinal.model.param.ExamParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 import com.xhtlwb.dbfinal.persistence.ExamDao;
 import com.xhtlwb.dbfinal.service.IExamService;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Xueht
@@ -41,7 +43,7 @@ public class ExamService implements IExamService {
             examDao.deleteInfo(id);
             apiResult.success();
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("删除失败");
         }
         return apiResult;
@@ -54,7 +56,7 @@ public class ExamService implements IExamService {
             examDao.updateInfo(exam);
             apiResult.success();
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("更新失败");
         }
         return apiResult;
@@ -67,7 +69,20 @@ public class ExamService implements IExamService {
             Exam exam = examDao.getOne(id);
             apiResult.success(exam);
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
+            apiResult.fail("获取失败");
+        }
+        return apiResult;
+    }
+
+    @Override
+    public ApiResult getAllExam(ExamParam examParam) {
+        ApiResult apiResult = new ApiResult();
+        try{
+            List<Exam> le = examDao.getAllExam(examParam);
+            apiResult.success(le);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("获取失败");
         }
         return apiResult;

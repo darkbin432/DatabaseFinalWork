@@ -1,6 +1,7 @@
 package com.xhtlwb.dbfinal.service.impl;
 
 import com.xhtlwb.dbfinal.model.Problem;
+import com.xhtlwb.dbfinal.model.param.ProblemParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 import com.xhtlwb.dbfinal.persistence.ProblemDao;
 import com.xhtlwb.dbfinal.service.IProblemService;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Xueht
@@ -23,11 +25,11 @@ public class ProblemService implements IProblemService {
     @Override
     public ApiResult insert(Problem problem) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             problemDao.insertProblem(problem);
             apiResult.success();
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("插入失败");
         }
         return apiResult;
@@ -36,11 +38,11 @@ public class ProblemService implements IProblemService {
     @Override
     public ApiResult delete(Integer id) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             problemDao.deldteProblem(id);
             apiResult.success();
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("删除失败");
         }
         return apiResult;
@@ -49,11 +51,11 @@ public class ProblemService implements IProblemService {
     @Override
     public ApiResult update(Problem problem) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             problemDao.updateInfo(problem);
             apiResult.success();
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("更新失败");
         }
         return apiResult;
@@ -62,13 +64,27 @@ public class ProblemService implements IProblemService {
     @Override
     public ApiResult getOne(Integer id) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             Problem problem = problemDao.selectOneProblem(id);
             apiResult.success(problem);
         } catch (Exception ex) {
-            logger.error(ex.getMessage());
+            logger.error(ex.getMessage(), ex);
             apiResult.fail("获取失败");
         }
         return apiResult;
     }
+
+    @Override
+    public ApiResult getAllProblem(ProblemParam problemParam) {
+        ApiResult apiResult = new ApiResult();
+        try {
+            List<Problem> lp = problemDao.getAllProblem(problemParam);
+            apiResult.success(lp);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+            apiResult.fail("获取失败");
+        }
+        return apiResult;
+    }
+
 }

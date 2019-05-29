@@ -1,6 +1,7 @@
 package com.xhtlwb.dbfinal.service;
 
 import com.xhtlwb.dbfinal.model.Exam;
+import com.xhtlwb.dbfinal.model.param.ExamParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 
 /**
@@ -14,4 +15,6 @@ public interface IExamService {
     ApiResult update(Exam exam);
 
     ApiResult getOne(Integer id);
+
+    ApiResult getAllExam(ExamParam examParam);
 }

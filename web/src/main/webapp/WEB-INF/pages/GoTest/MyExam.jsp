@@ -197,7 +197,7 @@
             dataType: "json",
             async: false,
             data: {
-                id: id,
+                courseId: id,
                 username: user.username,
             },
             success: function (data) {
