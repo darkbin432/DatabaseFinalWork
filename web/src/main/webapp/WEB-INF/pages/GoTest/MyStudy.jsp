@@ -97,7 +97,7 @@
         <span class="breadcrumb-item">当前位置：</span>
         <a href="MyCourse" class="breadcrumb-item">我的课程</a>
         <span class="breadcrumb-arrow">></span>
-        <span class="breadcrumb-item">Java程序设计</span>
+        <span id="courseTitle" class="breadcrumb-item">Java程序设计</span>
     </div>
     <div class="learn-body">
         <div class="learn-info">
@@ -114,7 +114,7 @@
             <div class="learn-item">
                 <img src="<%=request.getContextPath()%>/Content/images/newframe/course-homework.png" />
                 <span class="learn-name">我的作业</span>
-                <span class="learn-resource">共 9 个</span>
+                <span class="learn-resource">共  个</span>
                 <span class="learn-button"><a href="<%=request.getContextPath()%>/GoTest/MyExam?id=1" class="button blue r2">查 看</a></span>
             </div>
 
@@ -159,8 +159,9 @@
                 id: id,
             },
             success: function (data) {
-                $(".breadcrumb-item").html(data.data[0].title);
-                $(".learn-content").html(data.data[0].description);
+                $("#courseTitle").html(data.data.title);
+                $(".learn-content").html(data.data.description);
+                $(".learn-resource").html("共 " + data.data.examCount + " 个");
             },
             error: function () {
                 alert("服务器请求失败")
@@ -214,11 +215,11 @@
         }, 5000);
     });
 
-    $.post('/Message/UnreadedMsg', function (data) {
-        if (data > 0) {
-            $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
-        }
-    });
+    // $.post('/Message/UnreadedMsg', function (data) {
+    //     if (data > 0) {
+    //         $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');
+    //     }
+    // });
 </script>
 </body>
 </html>

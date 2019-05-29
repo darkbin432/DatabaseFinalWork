@@ -175,21 +175,21 @@
 
         $("#courseLink").attr("href",rootPath + "/GoTest/MyStudy?id=" +id);
 
-        // $.ajax({
-        //     type: "POST",
-        //     url: rootPath + "/api/getCourse",
-        //     dataType: "json",
-        //     async: false,
-        //     data: {
-        //         id: id,
-        //     },
-        //     success: function (data) {
-        //         $("#courseLink").text(data.data[0].title);
-        //     },
-        //     error: function () {
-        //         alert("服务器请求失败")
-        //     }
-        // })
+        $.ajax({
+            type: "POST",
+            url: rootPath + "/api/getCourse",
+            dataType: "json",
+            async: false,
+            data: {
+                id: id,
+            },
+            success: function (data) {
+                $("#courseLink").text(data.data[0].title);
+            },
+            error: function () {
+                alert("服务器请求失败")
+            }
+        })
 
         $.ajax({
             type: "POST",
