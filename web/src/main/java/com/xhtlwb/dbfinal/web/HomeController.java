@@ -24,13 +24,23 @@ public class HomeController extends ApplicationController {
     }
 
     @RequestMapping(value = "/GoTest/MyStudy" ,method = RequestMethod.GET)
-    public ModelAndView MyStudy(Integer id){
+    public ModelAndView MyStudy(){
         return buildMAV("MyStudy.jsp");
+    }
+
+    @RequestMapping(value = "/GoTest/MyExam" ,method = RequestMethod.GET)
+    public ModelAndView MyExam(){
+        return buildMAV("MyExam.jsp");
     }
 
     @RequestMapping(value = "/GoTest/MyTest" ,method = RequestMethod.GET)
     public ModelAndView MyTest(){
         return buildMAV("MyTest.jsp");
+    }
+
+    @RequestMapping(value = "/GoTest/TestOne" ,method = RequestMethod.GET)
+    public ModelAndView TestOne(){
+        return buildMAV("TestOne.jsp");
     }
 
     @RequestMapping(value = "/Account" ,method = RequestMethod.GET)

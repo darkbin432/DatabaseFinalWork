@@ -11,6 +11,9 @@
     var user;
     var nowCourseId;
     var nowExamId;
+    var nowCourseTitle;
+    var nowExamTitle;
+
     jQuery(
         function ($) {
             $.ajax({

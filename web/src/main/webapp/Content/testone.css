@@ -1,0 +1,70 @@
+html
+{
+    overflow: hidden;
+}
+
+#header
+{
+    height: 50px;
+    line-height: 50px;
+    background: #004c9c url(images/front-frame/bg-header.png) repeat-x left top;
+    border-bottom: 1px solid #004c9c;
+}
+
+    #header #header_inner
+    {
+        margin: 0 auto;
+        width: 960px;
+    }
+
+        #header #header_inner h2
+        {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+.point
+{
+    color: red;
+    font-weight: bold;
+}
+
+.upload-tips
+{
+}
+
+.upload-queue
+{
+    margin-top: 5px;
+    border: 3px dashed #eee;
+    padding: 8px 10px;
+    display: none;
+}
+
+.fileinput-button
+{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+    .fileinput-button input
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        opacity: 0;
+        -ms-filter: 'alpha(opacity=0)';
+        font-size: 200px !important;
+        direction: ltr;
+        cursor: pointer;
+    }
+
+.bar
+{
+    margin-top: 4px;
+    height: 5px;
+    background: #5cb85c;
+    border-radius: 2px;
+}

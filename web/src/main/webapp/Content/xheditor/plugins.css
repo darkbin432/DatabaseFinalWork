@@ -1,0 +1,12 @@
+.btnCode {
+    background: transparent url(prettify/code.gif) no-repeat 16px 16px;
+    background-position: 2px 2px;
+}
+.btnAudio {
+    background: transparent url(plugin_icons/audio.png) no-repeat 16px 16px;
+    background-position: 2px 2px;
+}
+.btnVideo {
+    background: transparent url(plugin_icons/video.png) no-repeat 16px 16px;
+    background-position: 2px 2px;
+}
