@@ -61,7 +61,7 @@
 
     <div id="content" style="padding: 10px 0 0 10px; margin-right: 200px; background-color: #fff;">
         <div id="content_left" style="float: left; width: 150px; padding: 15px 10px; border-right: 1px solid #eee; overflow: auto;">
-            <dl class="bundle-item front">
+            <dl class="bundle-item front" id="problemList">
                 <dt style="position: relative;">
                     <b class="transform">&nbsp;</b> <a href="javascript:;">
                     单项选择题
@@ -214,11 +214,37 @@
 
         $.ajax({
             type: "POST",
-            url: rootPath + "/api/getProblem",
+            url: rootPath + "/api/getProblems",
             dataType: "json",
             async: false,
             data: {
                 examId: id,
+            },
+            success: function (data) {
+                var html = "<dt style=\"position: relative;\">\n" +
+                    "                    <b class=\"transform\">&nbsp;</b> <a href=\"javascript:;\">\n" +
+                    "                    单项选择题\n" +
+                    "                </a>\n" +
+                    "                </dt>";
+                for (var i = 0; i < data.data.length; ++i){
+                    html += "<dd data-val-id=\"" + data.data[i].id + "\" class=\"" + data.data[i].isFinish + "\">\n" +
+                        "                    <a href=\"javascript:;\" data-val-id=\"" + data.data[i].id + "\">第" + (i + 1) + "题</a>\n" +
+                        "                </dd>\n";
+                }
+                $("#problemList").html(html);
+            },
+            error: function () {
+                alert("服务器请求失败")
+            }
+        })
+
+        $.ajax({
+            type: "POST",
+            url: rootPath + "/api/getProblem",
+            dataType: "json",
+            async: false,
+            data: {
+                problemId: id,
             },
             success: function (data) {
                 var html = "<div class=\"question-item\" id=\"" + id + "\" data-type=\"SINGLE_CHIOCE\" data-type-judgeonsave=\"0\">\n" +
@@ -226,20 +252,20 @@
                     "        <table class=\"d-tbl autow\">\n" +
                     "        <tbody><tr>\n" +
                     "        <td class=\"text-right\">分数：</td>\n" +
-                    "    <td>" + data.data[0].point + "</td>\n" +
+                    "    <td>" + data.data.point + "</td>\n" +
                     "    </tr>\n" +
                     "    </tbody></table>\n" +
                     "    </div>\n" +
-                    "    <div class=\"question-face\"><p>" + data.data[0].problemFace + "</p></div>\n" +
+                    "    <div class=\"question-face\"><p>" + data.data.problemFace + "</p></div>\n" +
                     "    <div class=\"question-answer\">\n" +
                     "        <input class=\"question-option-input\" type=\"radio\" value=\"A\" id=\"" + id + "\" name=\"ANSWER_2445923\">\n" +
-                    "        <label for=\"Question_2445923_OptionA\">\n" + data.data[0].problemChoose1 + "</label><br>\n" +
+                    "        <label for=\"Question_2445923_OptionA\">\n" + data.data.problemChoose1 + "</label><br>\n" +
                     "        <input class=\"question-option-input\" checked=\"'checked'\" type=\"radio\" value=\"B\" id=\"" + id + "\" >\n" +
-                    "        <label for=\"Question_2445923_OptionB\">\n" + data.data[0].problemChoose2 + "</label><br>\n" +
+                    "        <label for=\"Question_2445923_OptionB\">\n" + data.data.problemChoose2 + "</label><br>\n" +
                     "        <input class=\"question-option-input\" type=\"radio\" value=\"C\" id=\"" + id + "\" name=\"ANSWER_2445923\">\n" +
-                    "        <label for=\"Question_2445923_OptionC\">\n" + data.data[0].problemChoose3 + "</label><br>\n" +
+                    "        <label for=\"Question_2445923_OptionC\">\n" + data.data.problemChoose3 + "</label><br>\n" +
                     "        <input class=\"question-option-input\" type=\"radio\" value=\"D\" id=\"" + id + "\" name=\"ANSWER_2445923\">\n" +
-                    "        <label for=\"Question_2445923_OptionD\">\n" + data.data[0].problemChoose4 + "</label><br>\n" +
+                    "        <label for=\"Question_2445923_OptionD\">\n" + data.data.problemChoose4 + "</label><br>\n" +
                     "        </div>\n" +
                     "\n" +
                     "        <div class=\"question-spinner lf\"></div>\n" +
@@ -260,10 +286,10 @@
     function loadQuestionOne(userTestQuestionId) {
         //$('#upload_answerkey').uploadifyDestroy();
         $("#loading").show();
-        $.get('/GoTest/QuestionOne', { id: userTestQuestionId, tail: new Date().getTime() }, function (view) {
-            $('#c-grid-ajax').html(view);
-            $("#loading").hide();
-        });
+        // $.get('/GoTest/QuestionOne', { id: userTestQuestionId, tail: new Date().getTime() }, function (view) {
+        //     $('#c-grid-ajax').html(view);
+        //     $("#loading").hide();
+        // });
     }
 
     function answerAdaptation(userTestQuestionId) {
