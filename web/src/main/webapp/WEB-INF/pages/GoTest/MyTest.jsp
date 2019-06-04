@@ -152,7 +152,7 @@
     jQuery(function ($) {
         $.ajax({
             type: "POST",
-            url: rootPath + "/api/getExams",
+            url: rootPath + "/api/getTests",
             dataType: "json",
             async: false,
             data: {
