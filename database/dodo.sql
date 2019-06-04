@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2019-05-28 19:33:01
+Date: 2019-06-04 19:08:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -155,6 +155,24 @@ CREATE TABLE `user_course_relationship` (
 
 -- ----------------------------
 -- Records of user_course_relationship
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `user_exam_relationship`
+-- ----------------------------
+DROP TABLE IF EXISTS `user_exam_relationship`;
+CREATE TABLE `user_exam_relationship` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `user_username` varchar(255) NOT NULL,
+  `created_time` datetime NOT NULL,
+  `updated_time` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_exam_relationship
 -- ----------------------------
 
 -- ----------------------------
