@@ -19,9 +19,16 @@ public class ProblemController {
     @Resource
     private IProblemService problemService;
 
-    @RequestMapping(value = "/getProblem", method = RequestMethod.POST)
+    @RequestMapping(value = "/getProblems", method = RequestMethod.POST)
     @ResponseBody
-    private ApiResult getProblem(ProblemParam problemParam) {
+    private ApiResult getProblems(ProblemParam problemParam) {
         return problemService.getAllProblem(problemParam);
     }
+
+    @RequestMapping(value = "/getProblem", method = RequestMethod.POST)
+    @ResponseBody
+    private ApiResult getProblem(Integer id) {
+        return problemService.getOne(id);
+    }
+
 }

@@ -666,7 +666,6 @@ textarea {
         line-height: 23px;
         margin-left: 42px;
         padding-left: 18px;
-        display: none;
     }
 
         .bundle-item dd.undo {
@@ -1739,7 +1738,6 @@ a.action-remove-item {
         line-height: 23px;
         margin-left: 42px;
         padding-left: 3px;
-        display: none;
     }
 
     .bundle-item.front dd {

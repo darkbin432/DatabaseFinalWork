@@ -220,7 +220,7 @@
                         "                <div class=\"paper-col sc\">\n" + sc +
                         "                </div>\n" +
                         "                <div class=\"paper-col actions\">\n" +
-                        "                    <a class=\"button blue r2\" href=\"/GoTest/TestOne?id=" + data.data[i].id + "\">进入答题</a>                </div>\n" +
+                        "                    <a class=\"button blue r2\" href=\"" + rootPath + "/GoTest/TestOne?id=" + data.data[i].id + "\">进入答题</a>                </div>\n" +
                         "            </div>";
                 }
                 $("#c-grid-ajax").html(html);
@@ -229,7 +229,6 @@
                 alert("服务器请求失败");
             }
         })
-
     })
 </script>
 

@@ -25,4 +25,10 @@ public class ExamController {
     private ApiResult getExams(ExamParam examParam) {
         return examService.getAllExam(examParam);
     }
+
+    @RequestMapping(value = "/getExam", method = RequestMethod.POST)
+    @ResponseBody
+    private ApiResult getExam(Integer id) {
+        return examService.getOne(id);
+    }
 }

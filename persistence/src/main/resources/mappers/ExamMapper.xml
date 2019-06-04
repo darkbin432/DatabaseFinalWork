@@ -39,7 +39,7 @@
         WHERE id = #{id};
     </update>
 
-    <select id="getOne" parameterType="int">
+    <select id="getOne" parameterType="int" resultType="com.xhtlwb.dbfinal.model.Exam">
         SELECT *
         FROM exam
         WHERE id = #{id} AND status = 1
