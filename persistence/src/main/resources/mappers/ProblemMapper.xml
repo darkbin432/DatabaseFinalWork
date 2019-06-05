@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhtlwb.dbfinal.persistence.ProblemDao">
+
+    <insert id="insertProblem" parameterType="com.xhtlwb.dbfinal.model.Problem" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO problem(problem_face, problem_choose_1, problem_choose_2, problem_choose_3, problem_choose_4, answer, created_time, updated_time, status)
+        VALUES (#{problemFace}, #{problemChoose1}, #{problemChoose2}, #{problemChoose3}, #{problemChoose4}, #{answer}, #{createdTime}, #{updatedTime}, #{status})
+    </insert>
+
+    <update id="updateInfo" parameterType="com.xhtlwb.dbfinal.model.Problem">
+        UPDATE problem
+        SET
+        <if test="problemFace!=null">
+            problem_face = #{problemFace},
+        </if>
+        <if test="problemChoose1!=null">
+            problem_choose_1 = #{problemChoose1},
+        </if>
+        <if test="problemChoose2!=null">
+            problem_choose_2 = #{problemChoose2},
+        </if>
+        <if test="problemChoose3!=null">
+            problem_choose_3 = #{problemChoose3},
+        </if>
+        <if test="problemChoose4!=null">
+            problem_choose_4 = #{problemChoose4},
+        </if>
+        <if test="answer!=null">
+            answer = #{answer},
+        </if>
+        updated_time = now()
+        where id = #{id};
+    </update>
+
+    <select id="selectOneProblem" parameterType="hashmap" resultType="com.xhtlwb.dbfinal.model.Problem">
+        SELECT * FROM problem
+        WHERE status = 1 AND id = #{id}
+        LIMIT 1;
+    </select>
+
+    <update id="deldteProblem" parameterType="int">
+        UPDATE problem
+        SET status = 0
+        WHERE id = #{id}
+    </update>
+
+    <select id="getAllProblem" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam" resultType="com.xhtlwb.dbfinal.model.Problem">
+        SELECT *
+        FROM problem LEFT JOIN exam_problem_relationship ON problem.id = exam_problem_relationship.problem_id
+        <where>
+            problem.status = 1
+            AND exam_problem_relationship = 1
+            AND exam_problem_relationship.exam_id = #{examId}
+        </where>
+    </select>
+
+    <select id="getProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam"
+            resultType="com.xhtlwb.dbfinal.model.param.ProblemParam">
+        SELECT *
+        FROM user_problem_relationship
+        <where>
+            status = 1
+            AND user_id = #{userId}
+            AND exam_id = #{examId}
+            AND problem_id = #{ProblemId}
+        </where>
+        LIMIT 1;
+    </select>
+
+    <insert id="insertProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_problem_relationship(user_id, probldm_id, exam_id, choose, created_time, updated_time, status)
+        VALUES (#{userId}, #{probldmId}, #{examId}, #{choose}, now(), now(), #{status})
+    </insert>
+
+    <update id="updateProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam">
+        UPDATE user_problem_relationship
+        SET
+        <if test="userId!=null">
+            user_id = #{userId} AND
+        </if>
+        <if test="problemId!=null">
+            probldm_id = #{probldmId} AND
+        </if>
+        <if test="examId!=null">
+            exam_id = #{examId} AND
+        </if>
+        <if test="choose!=null">
+            choose = #{choose} AND
+        </if>
+        updated_time = now()
+        WHERE id = #{id};
+    </update>
+
+</mapper>

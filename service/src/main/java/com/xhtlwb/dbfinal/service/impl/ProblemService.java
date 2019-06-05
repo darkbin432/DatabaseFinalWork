@@ -87,4 +87,22 @@ public class ProblemService implements IProblemService {
         return apiResult;
     }
 
+    @Override
+    public ApiResult submitAnswer(ProblemParam problemParam) {
+        ApiResult apiResult = new ApiResult();
+        try {
+            ProblemParam param = problemDao.getProblemStatus(problemParam);
+            if (param == null) {
+                problemDao.insertProblemStatus(problemParam);
+            } else {
+                problemDao.updateProblemStatus(problemParam);
+            }
+            apiResult.success();
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+            apiResult.fail("提交失败");
+        }
+        return apiResult;
+    }
+
 }
