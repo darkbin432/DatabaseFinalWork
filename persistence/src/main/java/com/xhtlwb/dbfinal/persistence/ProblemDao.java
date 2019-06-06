@@ -18,4 +18,10 @@ public interface ProblemDao {
     void deldteProblem(Integer id);
 
     List<Problem> getAllProblem(ProblemParam problemParam);
+
+    ProblemParam getProblemStatus(ProblemParam problemParam);
+
+    void insertProblemStatus(ProblemParam problemParam);
+
+    void updateProblemStatus(ProblemParam problemParam);
 }

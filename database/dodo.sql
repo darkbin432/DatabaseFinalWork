@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2019-06-04 19:08:56
+Date: 2019-06-05 16:32:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,6 +41,7 @@ DROP TABLE IF EXISTS `exam`;
 CREATE TABLE `exam` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `type` tinyint(1) NOT NULL,
   `description` varchar(255) NOT NULL,
   `course_id` int(11) NOT NULL,
   `teacher_id` int(11) NOT NULL,
@@ -200,7 +201,7 @@ DROP TABLE IF EXISTS `user_problem_relationship`;
 CREATE TABLE `user_problem_relationship` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `probldm_id` int(11) NOT NULL,
+  `problem_id` int(11) NOT NULL,
   `exam_id` int(11) NOT NULL,
   `choose` int(11) NOT NULL,
   `created_time` int(11) NOT NULL,

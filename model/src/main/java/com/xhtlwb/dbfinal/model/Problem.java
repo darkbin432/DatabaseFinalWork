@@ -3,13 +3,31 @@ package com.xhtlwb.dbfinal.model;
 /**
  * @author Xueht
  */
-public class Problem extends Entity{
+public class Problem extends Entity {
+    private Integer examId;
+    private Integer userId;
     private String problemFace;
     private String problemChoose1;
     private String problemChoose2;
     private String problemChoose3;
     private String problemChoose4;
     private Integer answer;
+
+    public Integer getExamId() {
+        return examId;
+    }
+
+    public void setExamId(Integer examId) {
+        this.examId = examId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public String getProblemFace() {
         return problemFace;

@@ -4,8 +4,18 @@ package com.xhtlwb.dbfinal.model.param;
  * @author Xueht
  */
 public class ProblemParam extends BasicParam {
+    private Integer userId;
     private Integer examId;
     private Integer problemId;
+    private Integer choose;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public Integer getExamId() {
         return examId;
@@ -21,5 +31,13 @@ public class ProblemParam extends BasicParam {
 
     public void setProblemId(Integer problemId) {
         this.problemId = problemId;
+    }
+
+    public Integer getChoose() {
+        return choose;
+    }
+
+    public void setChoose(Integer choose) {
+        this.choose = choose;
     }
 }

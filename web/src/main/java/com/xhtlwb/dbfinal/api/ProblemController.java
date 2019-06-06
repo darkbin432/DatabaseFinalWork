@@ -31,4 +31,10 @@ public class ProblemController {
         return problemService.getOne(id);
     }
 
+    @RequestMapping(value = "/submitAnswer", method = RequestMethod.POST)
+    @ResponseBody
+    private ApiResult submitAnswer(ProblemParam problemParam) {
+        return problemService.submitAnswer(problemParam);
+    }
+
 }

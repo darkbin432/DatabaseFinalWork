@@ -53,4 +53,41 @@
         </where>
     </select>
 
+    <select id="getProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam"
+            resultType="com.xhtlwb.dbfinal.model.param.ProblemParam">
+        SELECT *
+        FROM user_problem_relationship
+        <where>
+            status = 1
+            AND user_id = #{userId}
+            AND exam_id = #{examId}
+            AND problem_id = #{ProblemId}
+        </where>
+        LIMIT 1;
+    </select>
+
+    <insert id="insertProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_problem_relationship(user_id, probldm_id, exam_id, choose, created_time, updated_time, status)
+        VALUES (#{userId}, #{probldmId}, #{examId}, #{choose}, now(), now(), #{status})
+    </insert>
+
+    <update id="updateProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam">
+        UPDATE user_problem_relationship
+        SET
+        <if test="userId!=null">
+            user_id = #{userId} AND
+        </if>
+        <if test="problemId!=null">
+            probldm_id = #{probldmId} AND
+        </if>
+        <if test="examId!=null">
+            exam_id = #{examId} AND
+        </if>
+        <if test="choose!=null">
+            choose = #{choose} AND
+        </if>
+        updated_time = now()
+        WHERE id = #{id};
+    </update>
+
 </mapper>
