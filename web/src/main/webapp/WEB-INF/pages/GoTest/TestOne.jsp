@@ -17,20 +17,21 @@
 <html>
 <!--<![endif]-->
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="renderer" content="webkit">
     <title class="examTitle"></title>
     <script>
         var sitePath = '/';
     </script>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
-    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/fancybox2/jquery.fancybox.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
+    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/fancybox2/jquery.fancybox.css" rel="stylesheet"/>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.validate.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.xbox.js" type="text/javascript"></script>
@@ -44,13 +45,15 @@
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-<link href="<%=request.getContextPath()%>/Content/testone.css" type="text/css" rel="stylesheet" />
-<link href="<%=request.getContextPath()%>/Content/xheditor/plugins.css" type="text/css" rel="stylesheet" />
-<script src="<%=request.getContextPath()%>/Content/xheditor/xheditor-1.1.13-zh-cn.min.js" type="text/javascript"></script>
+<link href="<%=request.getContextPath()%>/Content/testone.css" type="text/css" rel="stylesheet"/>
+<link href="<%=request.getContextPath()%>/Content/xheditor/plugins.css" type="text/css" rel="stylesheet"/>
+<script src="<%=request.getContextPath()%>/Content/xheditor/xheditor-1.1.13-zh-cn.min.js"
+        type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/Content/xheditor/config.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/Scripts/jquery.cookie.js" type="text/javascript"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/Content/fancybox2/jquery.fancybox.pack.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Content/fancybox2/jquery.fancybox.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Content/fancybox2/jquery.fancybox.css"
+      media="screen"/>
 
 <div id="wrapper" style="background-color: #f5f5f5;">
     <div id="header">
@@ -60,7 +63,8 @@
     </div>
 
     <div id="content" style="padding: 10px 0 0 10px; margin-right: 200px; background-color: #fff;">
-        <div id="content_left" style="float: left; width: 150px; padding: 15px 10px; border-right: 1px solid #eee; overflow: auto;">
+        <div id="content_left"
+             style="float: left; width: 150px; padding: 15px 10px; border-right: 1px solid #eee; overflow: auto;">
             <dl class="bundle-item front" id="problemList">
                 <dt style="position: relative;">
                     单项选择题
@@ -84,9 +88,9 @@
             <a id="cmd_submit" class="button green r2" href="javascript:;" data-val-testid="238892">提交作业</a>
         </div>
         <div class="info-addons photo">
-            <img alt="头像" src="<%=request.getContextPath()%>/Content/images/avatar_default.gif" />
+            <img alt="头像" src="<%=request.getContextPath()%>/Content/images/avatar_default.gif"/>
         </div>
-        <div class="info-addons" id="examUser">姓名：罗伟斌 </div>
+        <div class="info-addons" id="examUser">姓名：罗伟斌</div>
         <div class="info-addons info-testmemo" style="margin-top: 40px; overflow-y: auto; padding: 10px;">
 
         </div>
@@ -95,6 +99,7 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
+        var examId;
         var selectProblemId;
         $("#examUser").html("姓名：" + user.name + " ");
 
@@ -117,6 +122,7 @@
             },
             success: function (data) {
                 $(".examTitle").html(data.data.title);
+                examId = data.data.id;
             },
             error: function () {
                 alert("服务器请求失败")
@@ -135,9 +141,9 @@
                 var html = "<dt style=\"position: relative;\">\n" +
                     "                    单项选择题\n" +
                     "                </dt>";
-                for (var i = 0; i < data.data.length; ++i){
+                for (var i = 0; i < data.data.length; ++i) {
                     var finish = "undo";
-                    if (data.data[i].isFinish == 1){
+                    if (data.data[i].isFinish == 1) {
                         finish = "finish";
                     }
                     html += "<dd id=\"" + data.data[i].id + "\" class=\"" + finish + "\">\n" +
@@ -151,7 +157,7 @@
             }
         })
 
-        $("#problemList").on('click','dd',function () {
+        $("#problemList").on('click', 'dd', function () {
             selectProblemId = $(this).attr("id");
             $("#problemList dd").removeClass("sel");
             $(this).addClass("sel");
@@ -187,14 +193,16 @@
             })
         })
 
-        $("#c-grid-ajax").on('click','.question-option-input',function () {
+        $("#c-grid-ajax").on('click', '.question-option-input', function () {
             $.ajax({
                 type: "POST",
                 url: rootPath + "/api/submitAnswer",
                 dataType: "json",
                 async: false,
                 data: {
-                    id: $(this).attr("id"),
+                    userId: user.id,
+                    examId: examId,
+                    problemId: $(this).attr("id"),
                     value: $(this).val(),
                 },
                 success: function (data) {
@@ -747,7 +755,9 @@
         }
     }
 
-    $(document).keydown(function () { return key(arguments[0]) });
+    $(document).keydown(function () {
+        return key(arguments[0])
+    });
 
     document.body.onselectstart = document.body.ondrag = function () {
         return false;
