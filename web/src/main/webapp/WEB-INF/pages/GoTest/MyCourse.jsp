@@ -77,6 +77,7 @@
     </div>
     <div class="teacher-button hidden">
         <button id="addCourse">添加课程</button>
+        <button id="addProblem">添加题目</button>
     </div>
     <div class="course-out main">
         <div class="course-content">
@@ -99,6 +100,27 @@
         <br>
         <br>
         <button id="submitCourse">提交</button>
+    </div>
+    <div class="problem" style="display: none">
+        <label>题面： <input type="text" id="problemface"></label>
+        <br>
+        <br>
+        <label>A. <input type="text" id="choose1"></label>
+        <br>
+        <br>
+        <label>B. <input type="text" id="choose2"></label>
+        <br>
+        <br>
+        <label>C. <input type="text" id="choose3"></label>
+        <br>
+        <br>
+        <label>D. <input type="text" id="choose4"></label>
+        <br>
+        <br>
+        <label>答案(填1/2/3/4): <input type="text" id="answer"></label>
+        <br>
+        <br>
+        <button id="submitProblem">提交</button>
     </div>
 
 
@@ -126,7 +148,19 @@
             $("#courseStu").val("");
             $("#selectedStu").html("");
             $(".main").css("display","none");
+            $(".problem").css("display","none");
             $(".teacher").css("display","block");
+        })
+        $("#addProblem").click(function () {
+            $("#problemface").val("");
+            $("#choose1").val("");
+            $("#choose2").val("");
+            $("#choose3").val("");
+            $("#choose4").val("");
+            $("#answer").val("");
+            $(".main").css("display","none");
+            $(".teacher").css("display","none");
+            $(".problem").css("display","block");
         })
 
         $("#addStu").click(function () {
@@ -150,6 +184,32 @@
                     name: courseName,
                     description: courseDescription,
                     stus: addStu,
+                },
+                success: function (data) {
+                    if (data.status === 200){
+                        alert("添加成功");
+                        window.location = rootPath + "GoTest/MyCourse";
+                    }
+                },
+                error: function () {
+                    alert("服务器请求失败")
+                }
+            })
+        })
+
+        $("#submitProblem").click(function () {
+            $.ajax({
+                type: "POST",
+                url: rootPath + "/api/addCourse",
+                dataType: "json",
+                async: false,
+                data: {
+                    problemFace: $("#problemface").val(),
+                    problemChoose1: $("#choose1").val(),
+                    problemChoose2: $("#choose2").val(),
+                    problemChoose3: $("#choose3").val(),
+                    problemChoose4: $("#choose4").val(),
+                    answer: $("#answer").val(),
                 },
                 success: function (data) {
                     if (data.status === 200){
