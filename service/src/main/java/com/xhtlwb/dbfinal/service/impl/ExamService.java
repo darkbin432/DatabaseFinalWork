@@ -26,8 +26,11 @@ public class ExamService implements IExamService {
     @Override
     public ApiResult insert(Exam exam) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             examDao.insertInfo(exam);
+            for (Integer problemId : exam.getProblemIds()) {
+                examDao.insertExamProblemRelation(problemId, exam.getId());
+            }
             apiResult.success();
         } catch (Exception ex) {
             logger.error(ex.getMessage());
@@ -39,7 +42,7 @@ public class ExamService implements IExamService {
     @Override
     public ApiResult delete(Integer id) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             examDao.deleteInfo(id);
             apiResult.success();
         } catch (Exception ex) {
@@ -52,7 +55,7 @@ public class ExamService implements IExamService {
     @Override
     public ApiResult update(Exam exam) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             examDao.updateInfo(exam);
             apiResult.success();
         } catch (Exception ex) {
@@ -65,7 +68,7 @@ public class ExamService implements IExamService {
     @Override
     public ApiResult getOne(Integer id) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             Exam exam = examDao.getOne(id);
             apiResult.success(exam);
         } catch (Exception ex) {
@@ -78,8 +81,13 @@ public class ExamService implements IExamService {
     @Override
     public ApiResult getAllExam(ExamParam examParam) {
         ApiResult apiResult = new ApiResult();
-        try{
-            List<Exam> le = examDao.getAllExam(examParam);
+        try {
+            List<Exam> le;
+            if (examParam.getUserType() == 0) {
+                le = examDao.getAllExamByStudent(examParam);
+            } else {
+                le = examDao.getAllExamByTeacher(examParam);
+            }
             apiResult.success(le);
         } catch (Exception ex) {
             logger.error(ex.getMessage(), ex);

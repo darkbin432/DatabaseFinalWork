@@ -1,14 +1,17 @@
 package com.xhtlwb.dbfinal.model;
 
+import java.util.List;
+
 /**
  * @author Xueht
  */
-public class Course extends Entity{
+public class Course extends Entity {
     private String title;
     private String description;
     private Integer teacherId;
     private String teacherName;
     private Integer examCount;
+    private String stus;
 
     public String getTitle() {
         return title;
@@ -48,5 +51,13 @@ public class Course extends Entity{
 
     public void setExamCount(Integer examCount) {
         this.examCount = examCount;
+    }
+
+    public String getStus() {
+        return stus;
+    }
+
+    public void setStus(String stus) {
+        this.stus = stus;
     }
 }

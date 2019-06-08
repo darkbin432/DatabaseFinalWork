@@ -1,5 +1,6 @@
 package com.xhtlwb.dbfinal.api;
 
+import com.xhtlwb.dbfinal.model.Problem;
 import com.xhtlwb.dbfinal.model.param.ProblemParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 import com.xhtlwb.dbfinal.service.IProblemService;
@@ -37,4 +38,9 @@ public class ProblemController {
         return problemService.submitAnswer(problemParam);
     }
 
+    @RequestMapping(value = "/addProblem", method = RequestMethod.POST)
+    @ResponseBody
+    private ApiResult addProblem(Problem problem) {
+        return problemService.insert(problem);
+    }
 }

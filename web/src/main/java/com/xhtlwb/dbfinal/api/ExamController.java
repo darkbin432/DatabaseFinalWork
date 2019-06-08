@@ -1,5 +1,6 @@
 package com.xhtlwb.dbfinal.api;
 
+import com.xhtlwb.dbfinal.model.Exam;
 import com.xhtlwb.dbfinal.model.param.ExamParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 import com.xhtlwb.dbfinal.service.IExamService;
@@ -26,9 +27,21 @@ public class ExamController {
         return examService.getAllExam(examParam);
     }
 
+    @RequestMapping(value = "/getTests", method = RequestMethod.POST)
+    @ResponseBody
+    private ApiResult getTests(ExamParam examParam) {
+        return examService.getAllExam(examParam);
+    }
+
     @RequestMapping(value = "/getExam", method = RequestMethod.POST)
     @ResponseBody
     private ApiResult getExam(Integer id) {
         return examService.getOne(id);
+    }
+
+    @RequestMapping(value = "/addExam", method = RequestMethod.POST)
+    @ResponseBody
+    private ApiResult addExam(Exam exam) {
+        return examService.insert(exam);
     }
 }

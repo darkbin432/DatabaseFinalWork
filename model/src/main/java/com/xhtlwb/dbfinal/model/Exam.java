@@ -3,19 +3,23 @@ package com.xhtlwb.dbfinal.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Xueht
  */
 public class Exam extends Entity{
     private String title;
-    private String description;
     private Integer courseId;
     private Integer teacherId;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone="GMT+8")
-    private Date beginTime;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone="GMT+8")
-    private Date endTime;
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone="GMT+8")
+    private String beginTime;
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone="GMT+8")
+    private String endTime;
+    private List<Integer> problemIds;
+    private String teacherName;
+    private Integer grade;
+    private Integer type;
 
     public String getTitle() {
         return title;
@@ -23,14 +27,6 @@ public class Exam extends Entity{
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Integer getCourseId() {
@@ -49,19 +45,51 @@ public class Exam extends Entity{
         this.teacherId = teacherId;
     }
 
-    public Date getBeginTime() {
+    public String getBeginTime() {
         return beginTime;
     }
 
-    public void setBeginTime(Date beginTime) {
+    public void setBeginTime(String beginTime) {
         this.beginTime = beginTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public List<Integer> getProblemIds() {
+        return problemIds;
+    }
+
+    public void setProblemIds(List<Integer> problemIds) {
+        this.problemIds = problemIds;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }

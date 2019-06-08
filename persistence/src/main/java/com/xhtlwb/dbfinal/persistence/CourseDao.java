@@ -2,6 +2,7 @@ package com.xhtlwb.dbfinal.persistence;
 
 import com.xhtlwb.dbfinal.model.Course;
 import com.xhtlwb.dbfinal.model.param.CourseParam;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,5 +18,9 @@ public interface CourseDao {
 
     Course getOne(Integer id);
 
-    List<Course> getAllCourse(CourseParam courseParam);
+    List<Course> getAllCourseByStudent(CourseParam courseParam);
+
+    List<Course> getAllCourseByTeacher(CourseParam courseParam);
+
+    void insertUserCourseRelation(@Param("userId") Integer userId, @Param("courseId") Integer courseId);
 }

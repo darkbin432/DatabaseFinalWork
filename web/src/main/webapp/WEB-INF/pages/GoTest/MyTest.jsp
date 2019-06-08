@@ -21,15 +21,16 @@
     <script>
         var sitePath = '/';
     </script>
-    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
-    <link href="<%=request.getContextPath()%>/Content/front.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet"
+          href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
+    <link href="<%=request.getContextPath()%>/Content/front.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css"/>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-1.5.1.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
@@ -40,9 +41,9 @@
     <!--[if lt IE 9]>
     <script src="<%=request.getContextPath()%>/Scripts/html5.js"></script>
     <![endif]-->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="renderer" content="webkit">
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/Content/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/Content/images/favicon.ico" type="image/x-icon"/>
     <style>
         /*邮件个数提示样式*/
         .unreadtip {
@@ -69,10 +70,14 @@
         <div id="header_logo" class="fixpng">
         </div>
         <div id="header_nav">
-            <a href="<%=request.getContextPath()%>/GoTest/MyCourse" title="我的课程" id="nav_course" class="nav folder"><i class="fixpng"></i><span>我的课程</span></a>
-            <a href="<%=request.getContextPath()%>/GoTest/MyTest" title="我的考试" id="nav_task" class="nav pancil"><i class="fixpng"></i><span>我的考试</span></a>
-            <a href="<%=request.getContextPath()%>/Message/Index?manager=False" title="站内信" id="nav_letter" class="nav msg"><i class="fixpng"></i><span>站内信</span></a>
-            <a href="<%=request.getContextPath()%>/Account" title="个人信息" id="nav_info" class="nav user"><i class="fixpng"></i><span>个人信息</span></a>
+            <a href="<%=request.getContextPath()%>/GoTest/MyCourse" title="我的课程" id="nav_course" class="nav folder"><i
+                    class="fixpng"></i><span>我的课程</span></a>
+            <a href="<%=request.getContextPath()%>/GoTest/MyTest" title="我的考试" id="nav_task" class="nav pancil"><i
+                    class="fixpng"></i><span>我的考试</span></a>
+            <a href="<%=request.getContextPath()%>/Message/Index?manager=False" title="站内信" id="nav_letter"
+               class="nav msg"><i class="fixpng"></i><span>站内信</span></a>
+            <a href="<%=request.getContextPath()%>/Account" title="个人信息" id="nav_info" class="nav user"><i
+                    class="fixpng"></i><span>个人信息</span></a>
             <div class="clearfix"></div>
         </div>
         <div id="user_actions">
@@ -156,11 +161,12 @@
             dataType: "json",
             async: false,
             data: {
-                username: user.username,
+                userId: user.id,
+                type: 1
             },
             success: function (data) {
                 var html = "";
-                for (var i = 0; i < data.data.length; ++i){
+                for (var i = 0; i < data.data.length; ++i) {
                     var examTime = "100分钟";
                     var examStatus = "已截止";
                     html += "<div class=\"paper clearfix\">\n" +
@@ -227,7 +233,8 @@
             $(window).resize(function () {
                 $('#content').height($(window).height() - $('#content').offset().top - 4);
             });
-        };
+        }
+        ;
 
         $(".tip span").click(function () {
             $(this).closest('.tip').hide('slow');

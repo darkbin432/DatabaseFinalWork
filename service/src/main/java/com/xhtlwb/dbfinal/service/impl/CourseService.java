@@ -25,8 +25,12 @@ public class CourseService implements ICourseService {
     @Override
     public ApiResult insert(Course course) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             courseDao.insertInfo(course);
+            String[] add = course.getStus().split(";");
+            for (String studentId : add) {
+                courseDao.insertUserCourseRelation(Integer.valueOf(studentId), course.getId());
+            }
             apiResult.success();
         } catch (Exception ex) {
             logger.error(ex.getMessage());
@@ -38,7 +42,7 @@ public class CourseService implements ICourseService {
     @Override
     public ApiResult delete(Integer id) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             courseDao.deleteInfo(id);
             apiResult.success();
         } catch (Exception ex) {
@@ -51,7 +55,7 @@ public class CourseService implements ICourseService {
     @Override
     public ApiResult update(Course course) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             courseDao.updateInfo(course);
             apiResult.success();
         } catch (Exception ex) {
@@ -64,7 +68,7 @@ public class CourseService implements ICourseService {
     @Override
     public ApiResult getOne(Integer id) {
         ApiResult apiResult = new ApiResult();
-        try{
+        try {
             Course course = courseDao.getOne(id);
             apiResult.success(course);
         } catch (Exception ex) {
@@ -77,8 +81,13 @@ public class CourseService implements ICourseService {
     @Override
     public ApiResult getAllCourse(CourseParam courseParam) {
         ApiResult apiResult = new ApiResult();
-        try{
-            List<Course> lc = courseDao.getAllCourse(courseParam);
+        try {
+            List<Course> lc;
+            if (courseParam.getType() == 1) {
+                lc = courseDao.getAllCourseByTeacher(courseParam);
+            } else {
+                lc = courseDao.getAllCourseByStudent(courseParam);
+            }
             apiResult.success(lc);
         } catch (Exception ex) {
             logger.error(ex.getMessage(), ex);

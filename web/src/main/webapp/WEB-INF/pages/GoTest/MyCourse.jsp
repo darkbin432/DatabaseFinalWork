@@ -20,15 +20,16 @@
     <script>
         var sitePath = '/';
     </script>
-    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
-    <link href="<%=request.getContextPath()%>/Content/front.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet"
+          href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
+    <link href="<%=request.getContextPath()%>/Content/front.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css"/>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-1.5.1.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
@@ -39,9 +40,9 @@
     <!--[if lt IE 9]>
     <script src="<%=request.getContextPath()%>/Scripts/html5.js"></script>
     <![endif]-->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="renderer" content="webkit">
-    <link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon"/>
 
 </head>
 <body>
@@ -51,10 +52,14 @@
         <div id="header_logo" class="fixpng">
         </div>
         <div id="header_nav">
-            <a href="<%=request.getContextPath()%>/GoTest/MyCourse" title="我的课程" id="nav_course" class="nav folder"><i class="fixpng"></i><span>我的课程</span></a>
-            <a href="<%=request.getContextPath()%>/GoTest/MyTest" title="我的考试" id="nav_task" class="nav pancil"><i class="fixpng"></i><span>我的考试</span></a>
-            <a href="<%=request.getContextPath()%>/Message/Index?manager=False" title="站内信" id="nav_letter" class="nav msg"><i class="fixpng"></i><span>站内信</span></a>
-            <a href="<%=request.getContextPath()%>/Account" title="个人信息" id="nav_info" class="nav user"><i class="fixpng"></i><span>个人信息</span></a>
+            <a href="<%=request.getContextPath()%>/GoTest/MyCourse" title="我的课程" id="nav_course" class="nav folder"><i
+                    class="fixpng"></i><span>我的课程</span></a>
+            <a href="<%=request.getContextPath()%>/GoTest/MyTest" title="我的考试" id="nav_task" class="nav pancil"><i
+                    class="fixpng"></i><span>我的考试</span></a>
+            <a href="<%=request.getContextPath()%>/Message/Index?manager=False" title="站内信" id="nav_letter"
+               class="nav msg"><i class="fixpng"></i><span>站内信</span></a>
+            <a href="<%=request.getContextPath()%>/Account" title="个人信息" id="nav_info" class="nav user"><i
+                    class="fixpng"></i><span>个人信息</span></a>
             <div class="clearfix"></div>
         </div>
         <div id="user_actions">
@@ -124,7 +129,6 @@
     </div>
 
 
-
 </div>
 <script type="text/javascript">
     jQuery(function ($) {
@@ -134,12 +138,12 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
-        var addStu = [];
+        var addStus = [];
 
-        if (user.type == 1){
-            $(".teacher-button").css("display","block");
-        }else{
-            $(".teacher-button").css("display","none");
+        if (user.type == 1) {
+            $(".teacher-button").css("display", "block");
+        } else {
+            $(".teacher-button").css("display", "none");
         }
 
         $("#addCourse").click(function () {
@@ -147,9 +151,9 @@
             $("#courseDescription").val("");
             $("#courseStu").val("");
             $("#selectedStu").html("");
-            $(".main").css("display","none");
-            $(".problem").css("display","none");
-            $(".teacher").css("display","block");
+            $(".main").css("display", "none");
+            $(".problem").css("display", "none");
+            $(".teacher").css("display", "block");
         })
         $("#addProblem").click(function () {
             $("#problemface").val("");
@@ -158,16 +162,16 @@
             $("#choose3").val("");
             $("#choose4").val("");
             $("#answer").val("");
-            $(".main").css("display","none");
-            $(".teacher").css("display","none");
-            $(".problem").css("display","block");
+            $(".main").css("display", "none");
+            $(".teacher").css("display", "none");
+            $(".problem").css("display", "block");
         })
 
         $("#addStu").click(function () {
-            addStu.push($("#courseStu").val());
+            addStus.push($("#courseStu").val());
             var html = "";
-            for (var i = 0; i < addStu.length; ++i){
-                html += addStu[i] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×<br>";
+            for (var i = 0; i < addStus.length; ++i) {
+                html += addStus[i] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×<br>";
             }
             $("#selectedStu").html(html);
         })
@@ -175,20 +179,27 @@
         $("#submitCourse").click(function () {
             var courseName = $("#courseName").val();
             var courseDescription = $("#courseDescription").val();
+            console.log(addStus);
+            var addStu = "";
+            for (var i = 0; i < addStus.length; ++i) {
+                addStu += addStus[i] + ";";
+            }
             $.ajax({
                 type: "POST",
                 url: rootPath + "/api/addCourse",
                 dataType: "json",
                 async: false,
                 data: {
-                    name: courseName,
+                    teacherId:user.id,
+                    title: courseName,
                     description: courseDescription,
                     stus: addStu,
+                    status:1,
                 },
                 success: function (data) {
-                    if (data.status === 200){
+                    if (data.status === 200) {
                         alert("添加成功");
-                        window.location = rootPath + "GoTest/MyCourse";
+                        window.location = rootPath + "/GoTest/MyCourse";
                     }
                 },
                 error: function () {
@@ -200,7 +211,7 @@
         $("#submitProblem").click(function () {
             $.ajax({
                 type: "POST",
-                url: rootPath + "/api/addCourse",
+                url: rootPath + "/api/addProblem",
                 dataType: "json",
                 async: false,
                 data: {
@@ -210,11 +221,12 @@
                     problemChoose3: $("#choose3").val(),
                     problemChoose4: $("#choose4").val(),
                     answer: $("#answer").val(),
+                    status:1,
                 },
                 success: function (data) {
-                    if (data.status === 200){
+                    if (data.status === 200) {
                         alert("添加成功");
-                        window.location = rootPath + "GoTest/MyCourse";
+                        window.location = rootPath + "/GoTest/MyCourse";
                     }
                 },
                 error: function () {
@@ -229,11 +241,13 @@
             dataType: "json",
             async: false,
             data: {
-                username: user.username,
+                id: user.id,
+                teacherId: user.id,
+                type: user.type,
             },
             success: function (data) {
                 var html = "";
-                for (var i = 0; i < data.data.length; ++i){
+                for (var i = 0; i < data.data.length; ++i) {
                     html += "<div class=\"course-item clearfix\">\n" +
                         "                <div class=\"course-image-Simulation\" style=\"background-color: rgb(51, 153, 51)\">\n" +
                         "                    " + data.data[i].title + "\n" +
@@ -255,14 +269,12 @@
                         "                </div>\n" +
                         "            </div>";
                 }
-               $(".course-out .course-content").html(html);
+                $(".course-out .course-content").html(html);
             },
             error: function () {
                 alert("服务器请求失败")
             }
         })
-
-
 
 
     })
@@ -289,35 +301,35 @@
 </script>
 <script src="<%=request.getContextPath()%>/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
 <%--<script type="text/javascript">--%>
-    <%--$(function () {--%>
-        <%--if ($('#left_nav').size() > 0) {--%>
-            <%--$('#left_nav').height($(window).height() - $('#left_nav').offset().top);--%>
-            <%--$('#content').height($('#left_nav').height() - 4/*unknow*/);--%>
+<%--$(function () {--%>
+<%--if ($('#left_nav').size() > 0) {--%>
+<%--$('#left_nav').height($(window).height() - $('#left_nav').offset().top);--%>
+<%--$('#content').height($('#left_nav').height() - 4/*unknow*/);--%>
 
-            <%--$(window).resize(function () {--%>
-                <%--$('#left_nav').height($(window).height() - $('#left_nav').offset().top);--%>
-                <%--$('#content').height($('#left_nav').height() - 4/*unknow*/);--%>
-            <%--});--%>
-        <%--} else {--%>
-            <%--$('#content').height($(window).height() - $('#content').offset().top - 4);--%>
-            <%--$(window).resize(function () {--%>
-                <%--$('#content').height($(window).height() - $('#content').offset().top - 4);--%>
-            <%--});--%>
-        <%--};--%>
+<%--$(window).resize(function () {--%>
+<%--$('#left_nav').height($(window).height() - $('#left_nav').offset().top);--%>
+<%--$('#content').height($('#left_nav').height() - 4/*unknow*/);--%>
+<%--});--%>
+<%--} else {--%>
+<%--$('#content').height($(window).height() - $('#content').offset().top - 4);--%>
+<%--$(window).resize(function () {--%>
+<%--$('#content').height($(window).height() - $('#content').offset().top - 4);--%>
+<%--});--%>
+<%--};--%>
 
-        <%--$(".tip span").click(function () {--%>
-            <%--$(this).closest('.tip').hide('slow');--%>
-        <%--});--%>
-        <%--setTimeout(function () {--%>
-            <%--$('.tip.autoclose').hide('slow')--%>
-        <%--}, 5000);--%>
-    <%--});--%>
+<%--$(".tip span").click(function () {--%>
+<%--$(this).closest('.tip').hide('slow');--%>
+<%--});--%>
+<%--setTimeout(function () {--%>
+<%--$('.tip.autoclose').hide('slow')--%>
+<%--}, 5000);--%>
+<%--});--%>
 
-    <%--// $.post('/Message/UnreadedMsg', function (data) {--%>
-    <%--//     if (data > 0) {--%>
-    <%--//         $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');--%>
-    <%--//     }--%>
-    <%--// });--%>
+<%--// $.post('/Message/UnreadedMsg', function (data) {--%>
+<%--//     if (data > 0) {--%>
+<%--//         $('#nav_letter').append('<span class="unreadtip">' + data + '</span>');--%>
+<%--//     }--%>
+<%--// });--%>
 <%--</script>--%>
 </body>
 </html>

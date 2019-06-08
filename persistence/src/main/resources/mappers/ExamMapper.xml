@@ -3,8 +3,8 @@
 <mapper namespace="com.xhtlwb.dbfinal.persistence.ExamDao">
 
     <insert id="insertInfo" parameterType="com.xhtlwb.dbfinal.model.Exam" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO exam (title, description, course_id, teacher_id, begin_time, end_time, created_time, updated_time, status)
-        VALUES (#{title}, #{description}, #{courseId}, #{teacherId}, #{beginTime}, #{endTime}, now(), now(), status)
+        INSERT INTO exam (title, course_id, teacher_id, begin_time, end_time, created_time, updated_time, status, type)
+        VALUES (#{title}, #{courseId}, #{teacherId}, now(), now(), now(), now(), status, #{type})
     </insert>
 
     <update id="updateInfo" parameterType="com.xhtlwb.dbfinal.model.Exam">
@@ -12,9 +12,6 @@
         SET
         <if test="title!=null">
             title = #{title},
-        </if>
-        <if test="description!=null">
-            description = #{description},
         </if>
         <if test="courseId!=null">
             course_id = #{courseId},
@@ -45,13 +42,16 @@
         WHERE id = #{id} AND status = 1
     </select>
 
-    <select id="getAllExam" parameterType="com.xhtlwb.dbfinal.model.param.ExamParam" resultType="com.xhtlwb.dbfinal.model.Exam">
-        SELECT *
+    <select id="getAllExamByStudent" parameterType="com.xhtlwb.dbfinal.model.param.ExamParam"
+            resultType="com.xhtlwb.dbfinal.model.Exam">
+        SELECT *,
+        (SELECT `user`.`name`
+        FROM course LEFT JOIN `user` ON course.teacher_id = `user`.id) AS teacher_name
         FROM exam LEFT JOIN user_exam_relationship ON exam.id = user_exam_relationship.exam_id
         <where>
             exam.status = 1
             AND user_exam_relationship.status = 1
-            AND user_exam_relationship.user_username = #{username}
+            AND user_exam_relationship.user_id = #{userId}
             <if test="title!=null">
                 AND exam.title LIKE "%"#{title}"%"
             </if>
@@ -61,10 +61,36 @@
             <if test="teacherId!=null">
                 AND exam.teacher_id = #{teacherId}
             </if>
+            <if test="userId!=null">
+                AND user_exam_relationship.user_id = #{userId}
+            </if>
+            <if test="type!=null">
+                AND exam.type = #{type}
+            </if>
         </where>
         ORDER BY exam.id DESC
         <if test="offset!=null and size!=null">
             LIMIT #{offset},#{size};
         </if>
     </select>
+
+    <select id="getAllExamByTeacher" parameterType="com.xhtlwb.dbfinal.model.param.ExamParam"
+            resultType="com.xhtlwb.dbfinal.model.Exam">
+        SELECT *
+        FROM exam LEFT JOIN course ON course.id = exam.course_id
+        <where>
+            exam.status = 1
+            AND course.status = 1
+            AND course.teacher_id = #{userId}
+        </where>
+        ORDER BY exam.id DESC
+        <if test="offset!=null and size!=null">
+            LIMIT #{offset},#{size};
+        </if>
+    </select>
+
+    <insert id="insertExamProblemRelation" parameterType="hashmap">
+        INSERT INTO exam_problem_relationship(problem_id, exam_id, created_time, updated_time, status)
+        VALUES (#{problemId}, #{examId}, now(), now(), 1);
+    </insert>
 </mapper>

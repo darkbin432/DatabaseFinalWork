@@ -1,5 +1,6 @@
 package com.xhtlwb.dbfinal.api;
 
+import com.xhtlwb.dbfinal.model.Course;
 import com.xhtlwb.dbfinal.model.param.CourseParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 import com.xhtlwb.dbfinal.service.ICourseService;
@@ -27,5 +28,11 @@ public class CourseController {
     @ResponseBody
     private ApiResult getCourse(Integer id) {
         return courseService.getOne(id);
+    }
+
+    @RequestMapping(value = "addCourse", method = RequestMethod.POST)
+    @ResponseBody
+    private ApiResult addCourse(Course course) {
+        return courseService.insert(course);
     }
 }

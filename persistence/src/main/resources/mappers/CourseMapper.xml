@@ -46,23 +46,20 @@
         LIMIT 1;
     </select>
 
-    <select id="getAllCourse" parameterType="com.xhtlwb.dbfinal.model.param.CourseParam" resultType="com.xhtlwb.dbfinal.model.Course">
+    <select id="getAllCourseByStudent" parameterType="com.xhtlwb.dbfinal.model.param.CourseParam" resultType="com.xhtlwb.dbfinal.model.Course">
         SELECT course.*, u1.name AS teacher_name
         FROM course LEFT JOIN `user` AS u1 ON course.teacher_id = u1.id
-        LEFT JOIN user_course_relationship AS u2 ON course.id = u2.id
+        LEFT JOIN user_course_relationship AS u2 ON course.id = u2.course_id
         <where>
             course.status = 1
             AND u1.status = 1
             AND u1.type = 1
             AND u2.status = 1
-            <if test="teacherId!=null">
-                AND course.teacher_id = #{teacherId}
-            </if>
             <if test="title!=null">
                 AND course.title LIKE "%"#{title}"%"
             </if>
-            <if test="username!=null">
-                AND u2.username = #{username}
+            <if test="id!=null">
+                AND u2.course_id = #{id}
             </if>
         </where>
         ORDER BY course.id DESC
@@ -71,4 +68,27 @@
         </if>
     </select>
 
+    <select id="getAllCourseByTeacher" parameterType="com.xhtlwb.dbfinal.model.param.CourseParam" resultType="com.xhtlwb.dbfinal.model.Course">
+        SELECT course.*, u1.name AS teacher_name
+        FROM course LEFT JOIN `user` AS u1 ON course.teacher_id = u1.id
+        <where>
+            course.status = 1
+            AND u1.status = 1
+            <if test="teacherId!=null">
+                AND course.teacher_id = #{teacherId}
+            </if>
+            <if test="title!=null">
+                AND course.title LIKE "%"#{title}"%"
+            </if>
+        </where>
+        ORDER BY course.id DESC
+        <if test="offset!=null and size!=null">
+            LIMIT #{offset},#{size};
+        </if>
+    </select>
+
+    <insert id="insertUserCourseRelation" parameterType="hashmap">
+        INSERT INTO user_course_relationship(user_id, course_id, created_time, updated_time, status)
+        VALUES (#{userId}, #{courseId}, now(), now(), 1);
+    </insert>
 </mapper>

@@ -21,28 +21,29 @@
     <script>
         var sitePath = '/';
     </script>
-    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
-    <link href="<%=request.getContextPath()%>/Content/front.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css" />
-    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/Site.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet"
+          href="<%=request.getContextPath()%>/Content/plugins/Font-Awesome-4.4.0/css/font-awesome.min.css">
+    <link href="<%=request.getContextPath()%>/Content/front.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/breadcrumb.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/fileicon.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/component.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/form.css" rel="stylesheet" type="text/css"/>
+    <link href="<%=request.getContextPath()%>/Content/misc.css" rel="stylesheet" type="text/css"/>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-1.5.1.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.validate.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.xbox.js" type="text/javascript"></script>
-    <script src="<%=request.getContextPath()%>/Scripts/xutils.js" type="text/javascript"></script>
+<%--    <script src="<%=request.getContextPath()%>/Scripts/xutils.js" type="text/javascript"></script>--%>
     <script src="<%=request.getContextPath()%>/Scripts/staticUrl.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <script src="<%=request.getContextPath()%>/Scripts/html5.js"></script>
     <![endif]-->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="renderer" content="webkit">
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/Content/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/Content/images/favicon.ico" type="image/x-icon"/>
     <style>
         /*邮件个数提示样式*/
         .unreadtip {
@@ -69,10 +70,14 @@
         <div id="header_logo" class="fixpng">
         </div>
         <div id="header_nav">
-            <a href="<%=request.getContextPath()%>/GoTest/MyCourse" title="我的课程" id="nav_course" class="nav folder"><i class="fixpng"></i><span>我的课程</span></a>
-            <a href="<%=request.getContextPath()%>/GoTest/MyTest" title="我的考试" id="nav_task" class="nav pancil"><i class="fixpng"></i><span>我的考试</span></a>
-            <a href="/Message/Index?manager=False" title="站内信" id="nav_letter" class="nav msg"><i class="fixpng"></i><span>站内信</span></a>
-            <a href="<%=request.getContextPath()%>/Account" title="个人信息" id="nav_info" class="nav user"><i class="fixpng"></i><span>个人信息</span></a>
+            <a href="<%=request.getContextPath()%>/GoTest/MyCourse" title="我的课程" id="nav_course" class="nav folder"><i
+                    class="fixpng"></i><span>我的课程</span></a>
+            <a href="<%=request.getContextPath()%>/GoTest/MyTest" title="我的考试" id="nav_task" class="nav pancil"><i
+                    class="fixpng"></i><span>我的考试</span></a>
+            <a href="/Message/Index?manager=False" title="站内信" id="nav_letter" class="nav msg"><i
+                    class="fixpng"></i><span>站内信</span></a>
+            <a href="<%=request.getContextPath()%>/Account" title="个人信息" id="nav_info" class="nav user"><i
+                    class="fixpng"></i><span>个人信息</span></a>
             <div class="clearfix"></div>
         </div>
         <div id="user_actions">
@@ -118,7 +123,7 @@
                 <div class="paper-col sc">
                 </div>
                 <div class="paper-col actions">
-                    <a class="button blue r2" href="<%=request.getContextPath()%>/GoTest/TestOne?id=1">进入答题</a>                </div>
+                    <a class="button blue r2" href="<%=request.getContextPath()%>/GoTest/TestOne?id=1">进入答题</a></div>
             </div>
             <div class="paper clearfix">
                 <div class="paper-col tit">
@@ -135,7 +140,7 @@
                     成绩：<span class="text-green">88.3</span>
                 </div>
                 <div class="paper-col actions">
-                    <a class="button blue r2" href="/Output/ViewOne/237064" target="_blank">查看</a>                </div>
+                    <a class="button blue r2" href="/Output/ViewOne/237064" target="_blank">查看</a></div>
             </div>
 
         </div>
@@ -145,14 +150,16 @@
         <label>标题： <input type="text" id="examTitle"></label>
         <br>
         <br>
-        <label>开始时间： <input type="text" id="stn">年<input type="text" id="sty">月<input type="text" id="str">日<input type="text" id="sts">：<input type="text" id="stf">：<input type="text" id="stm"></label>
+        <label>开始时间： <input type="text" id="stn">年<input type="text" id="sty">月<input type="text" id="str">日<input
+                type="text" id="sts">：<input type="text" id="stf">：<input type="text" id="stm"></label>
         <br>
         <br>
-        <label>结束时间： <input type="text" id="edn">年<input type="text" id="edy">月<input type="text" id="edr">日<input type="text" id="eds">：<input type="text" id="edf">：<input type="text" id="edm"></label>
+        <label>结束时间： <input type="text" id="edn">年<input type="text" id="edy">月<input type="text" id="edr">日<input
+                type="text" id="eds">：<input type="text" id="edf">：<input type="text" id="edm"></label>
         <br>
         <br>
-        <input name="exam" type="radio" value="0" checked /><label>作业</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input name="exam" type="radio" value="1"  /><label>考试</label>
+        <input name="exam" type="radio" value="0" checked/><label>作业</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="exam" type="radio" value="1"/><label>考试</label>
         <br>
         <br>
         <label>添加题目： <input type="text" id="problemId"></label>
@@ -202,10 +209,10 @@
 
         var id = getQueryString("id");
 
-        if (user.type == 1){
-            $(".teacher-button").css("display","block");
-        }else{
-            $(".teacher-button").css("display","none");
+        if (user.type == 1) {
+            $(".teacher-button").css("display", "block");
+        } else {
+            $(".teacher-button").css("display", "none");
         }
 
         $("#addExam").click(function () {
@@ -223,22 +230,29 @@
             $("#edf").val("");
             $("#edm").val("");
             $("#selectedPro").html("");
-            $(".main").css("display","none");
-            $(".teacher").css("display","block");
+            $(".main").css("display", "none");
+            $(".teacher").css("display", "block");
         })
 
         $("#addPro").click(function () {
             problemIds.push($("#problemId").val());
             var html = "";
-            for (var i = 0; i < problemIds.length; ++i){
+            for (var i = 0; i < problemIds.length; ++i) {
                 html += problemIds[i] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×<br>";
             }
             $("#selectedPro").html(html);
         })
 
         $("#submitExam").click(function () {
-            var beginTime = $("#stn").val() + "-" + $("#sty").val() + "-" + $("#str").val() + " " + $("#sts").val() + ":" + $("#stf").val() + ":" + $("#stm").val() ;
-            var endTime = $("#edn").val() + "-" + $("#edy").val() + "-" + $("#edr").val() + " " + $("#eds").val() + ":" + $("#edf").val() + ":" + $("#edm").val();
+            var beginTime = $("#stn").val() + "-" + $("#sty").val() + "-" + $("#str").val() + " " + $("#sts").val() + ":" + $("#stf").val() + ":00";
+            var endTime = $("#edn").val() + "-" + $("#edy").val() + "-" + $("#edr").val() + " " + $("#eds").val() + ":" + $("#edf").val() + ":00";
+            // beginTime = beginTime.replace(/-/g,"/");
+            // endTime = endTime.replace(/-/g,"/");
+            var newBeginTime = new Date(beginTime);
+            var newEndTime = new Date(endTime);
+            // console.log(newBeginTime);
+            // console.log(newEndTime);
+            // console.log(newBeginTime.getMonth())
             $.ajax({
                 type: "POST",
                 url: rootPath + "/api/addExam",
@@ -248,8 +262,8 @@
                     title: $("#examTitle").val(),
                     courseId: id,
                     teacherId: user.id,
-                    beginTime: beginTime,
-                    endTime: endTime,
+                    // beginTime: beginTime,
+                    // endTime: endTime,
                     type: $("input[name='exam']:checked").val(),
                     problemIds: problemIds,
                 },
@@ -261,7 +275,7 @@
             })
         })
 
-        $("#courseLink").attr("href",rootPath + "/GoTest/MyStudy?id=" +id);
+        $("#courseLink").attr("href", rootPath + "/GoTest/MyStudy?id=" + id);
 
         $.ajax({
             type: "POST",
@@ -286,14 +300,16 @@
             async: false,
             data: {
                 courseId: id,
-                username: user.username,
+                userId: user.id,
+                type: 0,
+                userType: user.type
             },
             success: function (data) {
                 var html = "";
-                for (var i = 0; i < data.data.length; ++i){
+                for (var i = 0; i < data.data.length; ++i) {
                     var sc = "";
-                    if (data.data[i].score != -1){
-                        sc = "成绩：<span class=\"text-green\">" + data.data[i].score + "</span>";
+                    if (data.data[i].score != -1) {
+                        sc = "成绩：<span class=\"text-green\">" + data.data[i].grade + "</span>";
                     }
                     html += "<div class=\"paper clearfix\">\n" +
                         "                <div class=\"paper-col tit\">\n" +
@@ -355,7 +371,8 @@
             $(window).resize(function () {
                 $('#content').height($(window).height() - $('#content').offset().top - 4);
             });
-        };
+        }
+        ;
 
         $(".tip span").click(function () {
             $(this).closest('.tip').hide('slow');

@@ -3,10 +3,11 @@ package com.xhtlwb.dbfinal.model.param;
 /**
  * @author Xueht
  */
-public class CourseParam extends BasicParam{
+public class CourseParam extends BasicParam {
     private Integer teacherId;
     private String title;
     private String username;
+    private Integer type;
 
     public Integer getTeacherId() {
         return teacherId;
@@ -30,5 +31,13 @@ public class CourseParam extends BasicParam{
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }
