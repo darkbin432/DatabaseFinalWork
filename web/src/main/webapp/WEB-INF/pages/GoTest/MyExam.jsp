@@ -98,7 +98,10 @@
         <span class="breadcrumb-arrow">></span>
         <span class="breadcrumb-item">我的作业</span>
     </div>
-    <div class="layout-relative">
+    <div class="teacher-button">
+        <button id="addExam">添加作业（考试）</button>
+    </div>
+    <div class="layout-relative main">
         <div id="loading" class="loading">正在加载数据…</div>
         <div id="c-grid-ajax" class="paper-list">
             <div class="paper clearfix">
@@ -137,6 +140,30 @@
 
         </div>
     </div>
+    <br>
+    <div class="teacher" style="display: none">
+        <label>标题： <input type="text" id="examTitle"></label>
+        <br>
+        <br>
+        <label>开始时间： <input type="text" id="stn">年<input type="text" id="sty">月<input type="text" id="str">日<input type="text" id="sts">：<input type="text" id="stf">：<input type="text" id="stm"></label>
+        <br>
+        <br>
+        <label>结束时间： <input type="text" id="edn">年<input type="text" id="edy">月<input type="text" id="edr">日<input type="text" id="eds">：<input type="text" id="edf">：<input type="text" id="edm"></label>
+        <br>
+        <br>
+        <input name="exam" type="radio" value="0" checked /><label>作业</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="exam" type="radio" value="1"  /><label>考试</label>
+        <br>
+        <br>
+        <label>添加题目： <input type="text" id="problemId"></label>
+        <button id="addPro">添加</button>
+        <div id="selectedPro">
+
+        </div>
+        <br>
+        <br>
+        <button id="submitExam">提交</button>
+    </div>
     <script type="text/javascript">
         $("#search_form").submit(function () {
             if ($('.sort-key-button.enabled').hasClass('up')) {
@@ -164,6 +191,8 @@
     jQuery(function ($) {
         $("#user_info").html(user.name);
 
+        var problemIds = [];
+
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = window.location.search.substr(1).match(reg);
@@ -172,6 +201,65 @@
         }
 
         var id = getQueryString("id");
+
+        if (user.type == 1){
+            $(".teacher-button").css("display","block");
+        }else{
+            $(".teacher-button").css("display","none");
+        }
+
+        $("#addExam").click(function () {
+            $("#examTitle").val("");
+            $("#stn").val("");
+            $("#sty").val("");
+            $("#str").val("");
+            $("#sts").val("");
+            $("#stf").val("");
+            $("#stm").val("");
+            $("#edn").val("");
+            $("#edy").val("");
+            $("#edr").val("");
+            $("#eds").val("");
+            $("#edf").val("");
+            $("#edm").val("");
+            $("#selectedPro").html("");
+            $(".main").css("display","none");
+            $(".teacher").css("display","block");
+        })
+
+        $("#addPro").click(function () {
+            problemIds.push($("#problemId").val());
+            var html = "";
+            for (var i = 0; i < problemIds.length; ++i){
+                html += problemIds[i] + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;×<br>";
+            }
+            $("#selectedPro").html(html);
+        })
+
+        $("#submitExam").click(function () {
+            var beginTime = $("#stn").val() + "-" + $("#sty").val() + "-" + $("#str").val() + " " + $("#sts").val() + ":" + $("#stf").val() + ":" + $("#stm").val() ;
+            var endTime = $("#edn").val() + "-" + $("#edy").val() + "-" + $("#edr").val() + " " + $("#eds").val() + ":" + $("#edf").val() + ":" + $("#edm").val();
+            $.ajax({
+                type: "POST",
+                url: rootPath + "/api/addExam",
+                dataType: "json",
+                async: false,
+                data: {
+                    title: $("#examTitle").val(),
+                    courseId: id,
+                    teacherId: user.id,
+                    beginTime: beginTime,
+                    endTime: endTime,
+                    type: $("input[name='exam']:checked").val(),
+                    problemIds: problemIds,
+                },
+                success: function (data) {
+                },
+                error: function () {
+                    alert("服务器请求失败")
+                }
+            })
+        })
 
         $("#courseLink").attr("href",rootPath + "/GoTest/MyStudy?id=" +id);
 
