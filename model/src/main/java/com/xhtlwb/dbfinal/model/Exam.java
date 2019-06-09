@@ -16,7 +16,7 @@ public class Exam extends Entity{
     private String beginTime;
 //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone="GMT+8")
     private String endTime;
-    private List<Integer> problemIds;
+    private String problemIds;
     private String teacherName;
     private Integer grade;
     private Integer type;
@@ -61,11 +61,11 @@ public class Exam extends Entity{
         this.endTime = endTime;
     }
 
-    public List<Integer> getProblemIds() {
+    public String getProblemIds() {
         return problemIds;
     }
 
-    public void setProblemIds(List<Integer> problemIds) {
+    public void setProblemIds(String problemIds) {
         this.problemIds = problemIds;
     }
 

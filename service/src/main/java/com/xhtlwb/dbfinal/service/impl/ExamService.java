@@ -1,9 +1,11 @@
 package com.xhtlwb.dbfinal.service.impl;
 
 import com.xhtlwb.dbfinal.model.Exam;
+import com.xhtlwb.dbfinal.model.Problem;
 import com.xhtlwb.dbfinal.model.param.ExamParam;
 import com.xhtlwb.dbfinal.model.result.ApiResult;
 import com.xhtlwb.dbfinal.persistence.ExamDao;
+import com.xhtlwb.dbfinal.persistence.ProblemDao;
 import com.xhtlwb.dbfinal.service.IExamService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +25,17 @@ public class ExamService implements IExamService {
     @Resource
     ExamDao examDao;
 
+    @Resource
+    ProblemDao problemDao;
+
     @Override
     public ApiResult insert(Exam exam) {
         ApiResult apiResult = new ApiResult();
         try {
             examDao.insertInfo(exam);
-            for (Integer problemId : exam.getProblemIds()) {
-                examDao.insertExamProblemRelation(problemId, exam.getId());
+            String[] add = exam.getProblemIds().split(";");
+            for (String problemId : add) {
+                examDao.insertExamProblemRelation(Integer.valueOf(problemId), exam.getId());
             }
             apiResult.success();
         } catch (Exception ex) {
@@ -85,6 +91,21 @@ public class ExamService implements IExamService {
             List<Exam> le;
             if (examParam.getUserType() == 0) {
                 le = examDao.getAllExamByStudent(examParam);
+                ExamParam tmp = new ExamParam();
+                tmp.setUserId(examParam.getUserId());
+                for (Exam exam : le) {
+                    tmp.setId(exam.getId());
+                    List<Problem> lp = examDao.getGrade(tmp);
+                    int right = 0;
+                    for (Problem problem : lp) {
+                        if (problem.getAnswer().equals(problem.getChoose())) {
+                            right++;
+                        }
+                    }
+                    if (lp.size() != 0) {
+                        exam.setGrade(right * 100 / lp.size());
+                    }
+                }
             } else {
                 le = examDao.getAllExamByTeacher(examParam);
             }

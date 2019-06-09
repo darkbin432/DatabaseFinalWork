@@ -93,4 +93,13 @@
         INSERT INTO exam_problem_relationship(problem_id, exam_id, created_time, updated_time, status)
         VALUES (#{problemId}, #{examId}, now(), now(), 1);
     </insert>
+
+    <select id="getGrade" parameterType="com.xhtlwb.dbfinal.model.param.ExamParam" resultType="com.xhtlwb.dbfinal.model.Problem">
+        SELECT problem.answer, user_problem_relationship.choose
+        FROM problem
+        LEFT JOIN user_problem_relationship ON problem.id = user_problem_relationship.problem_id
+        WHERE
+        user_problem_relationship.exam_id = #{id}
+        AND user_problem_relationship.user_id = #{userId}
+    </select>
 </mapper>

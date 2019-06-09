@@ -147,7 +147,7 @@
                     "                </dt>";
                 for (var i = 0; i < data.data.length; ++i) {
                     var finish = "undo";
-                    if (data.data[i].isFinish == 1) {
+                    if (data.data[i].isFinish > 0) {
                         finish = "finish";
                     }
                     html += "<dd id=\"" + data.data[i].id + "\" class=\"" + finish + "\">\n" +

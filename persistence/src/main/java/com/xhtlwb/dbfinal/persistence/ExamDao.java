@@ -1,6 +1,7 @@
 package com.xhtlwb.dbfinal.persistence;
 
 import com.xhtlwb.dbfinal.model.Exam;
+import com.xhtlwb.dbfinal.model.Problem;
 import com.xhtlwb.dbfinal.model.param.ExamParam;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,4 +24,6 @@ public interface ExamDao {
     List<Exam> getAllExamByTeacher(ExamParam examParam);
 
     void insertExamProblemRelation(@Param("problemId") Integer problemId, @Param("examId") Integer examId);
+
+    List<Problem> getGrade(ExamParam examParam);
 }

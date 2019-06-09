@@ -36,7 +36,7 @@
     <script src="<%=request.getContextPath()%>/Scripts/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.validate.min.js" type="text/javascript"></script>
     <script src="<%=request.getContextPath()%>/Scripts/jquery.xbox.js" type="text/javascript"></script>
-<%--    <script src="<%=request.getContextPath()%>/Scripts/xutils.js" type="text/javascript"></script>--%>
+    <%--    <script src="<%=request.getContextPath()%>/Scripts/xutils.js" type="text/javascript"></script>--%>
     <script src="<%=request.getContextPath()%>/Scripts/staticUrl.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <script src="<%=request.getContextPath()%>/Scripts/html5.js"></script>
@@ -246,13 +246,12 @@
         $("#submitExam").click(function () {
             var beginTime = $("#stn").val() + "-" + $("#sty").val() + "-" + $("#str").val() + " " + $("#sts").val() + ":" + $("#stf").val() + ":00";
             var endTime = $("#edn").val() + "-" + $("#edy").val() + "-" + $("#edr").val() + " " + $("#eds").val() + ":" + $("#edf").val() + ":00";
-            // beginTime = beginTime.replace(/-/g,"/");
-            // endTime = endTime.replace(/-/g,"/");
             var newBeginTime = new Date(beginTime);
             var newEndTime = new Date(endTime);
-            // console.log(newBeginTime);
-            // console.log(newEndTime);
-            // console.log(newBeginTime.getMonth())
+            var add = "";
+            for (var i = 0; i < problemIds.length; ++i) {
+                add += problemIds[i] + ";";
+            }
             $.ajax({
                 type: "POST",
                 url: rootPath + "/api/addExam",
@@ -265,7 +264,7 @@
                     // beginTime: beginTime,
                     // endTime: endTime,
                     type: $("input[name='exam']:checked").val(),
-                    problemIds: problemIds,
+                    problemIds: add,
                 },
                 success: function (data) {
                 },
