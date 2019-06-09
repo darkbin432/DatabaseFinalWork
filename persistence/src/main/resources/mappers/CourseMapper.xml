@@ -4,7 +4,7 @@
 
     <insert id="insertInfo" parameterType="com.xhtlwb.dbfinal.model.Course" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO course(title, description, teacher_id, created_time, updated_time, status)
-        VALUES (#{title}, #{description}, #{teacherId}, now(), now(), #{status});
+        VALUES (#{title}, #{description}, #{teacherId}, now(), now(), 1);
     </insert>
 
     <update id="updateInfo" parameterType="com.xhtlwb.dbfinal.model.param.CourseParam">

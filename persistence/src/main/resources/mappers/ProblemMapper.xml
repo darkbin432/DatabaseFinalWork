@@ -5,7 +5,7 @@
     <insert id="insertProblem" parameterType="com.xhtlwb.dbfinal.model.Problem" useGeneratedKeys="true"
             keyProperty="id">
         INSERT INTO problem(problem_face, problem_choose_1, problem_choose_2, problem_choose_3, problem_choose_4, answer, created_time, updated_time, status)
-        VALUES (#{problemFace}, #{problemChoose1}, #{problemChoose2}, #{problemChoose3}, #{problemChoose4}, #{answer}, now(), now(), #{status})
+        VALUES (#{problemFace}, #{problemChoose1}, #{problemChoose2}, #{problemChoose3}, #{problemChoose4}, #{answer}, now(), now(), 1)
     </insert>
 
     <update id="updateInfo" parameterType="com.xhtlwb.dbfinal.model.Problem">
