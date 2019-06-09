@@ -25,7 +25,7 @@ public class UserController {
     @Resource
     private IUserService userService;
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public ApiResult login(User user, HttpServletRequest request) {
         System.out.println("--------" + user.getPassword());
@@ -35,12 +35,18 @@ public class UserController {
         try {
             subject.login(token);
             apiResult = userService.login(user);
-            if (apiResult.getStatus() == 200){
+            if (apiResult.getStatus() == 200) {
                 request.getSession().setAttribute("User", apiResult.getData());
             }
         } catch (AuthenticationException e) {
             apiResult.fail("帐号或密码错误");
         }
         return apiResult;
+    }
+
+    @RequestMapping(value = "/updateInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public ApiResult updateInfo(User user) {
+        return userService.updateInfo(user);
     }
 }

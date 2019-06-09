@@ -255,7 +255,7 @@
 
             $("#cmd_submit").click(function () {
                 var username = $("#loginUsername").html();
-                var realname = $("#RealName").val();
+                var name = $("#RealName").val();
                 var sex = $("input[name='Sex']:checked").val();
                 var mobile = $("#Mobile").val();
                 var email = $("#Email").val();
@@ -266,7 +266,7 @@
                     dataType: "json",
                     data: {
                         username: username,
-                        name: realname,
+                        name: name,
                         sex: sex,
                         mobile: mobile,
                         email: email,

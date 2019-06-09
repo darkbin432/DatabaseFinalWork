@@ -29,11 +29,24 @@ public class UserService implements IUserService {
             if (temp != null) {
                 temp.setPassword("***********");
                 apiResult.success(temp);
-            } else{
+            } else {
                 apiResult.fail("帐号或密码错误");
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             apiResult.fail("数据库获取失败");
+        }
+        return apiResult;
+    }
+
+    @Override
+    public ApiResult updateInfo(User user) {
+        ApiResult apiResult = new ApiResult();
+        try {
+            userDao.updateInfo(user);
+            apiResult.success();
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+            apiResult.fail("更新失败");
         }
         return apiResult;
     }

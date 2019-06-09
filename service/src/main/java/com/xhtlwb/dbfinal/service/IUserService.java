@@ -8,4 +8,6 @@ import com.xhtlwb.dbfinal.model.result.ApiResult;
  */
 public interface IUserService {
     ApiResult login(User user);
+
+    ApiResult updateInfo(User user);
 }
