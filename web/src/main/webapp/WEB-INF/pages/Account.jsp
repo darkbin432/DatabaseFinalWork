@@ -130,8 +130,8 @@
                                 <label class="text-bold">性别：</label>
                             </th>
                             <td colspan="3">
-                                <input name="Sex" id="Gender_1" type="radio" value="男" checked /><label>男</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input name="Sex" id="Gender_2" type="radio" value="女"  /><label>女</label>
+                                <input name="Sex" id="Gender_1" type="radio" value="1" checked /><label>男</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input name="Sex" id="Gender_2" type="radio" value="0"  /><label>女</label>
                             </td>
                         </tr>
 
@@ -260,7 +260,25 @@
                 var mobile = $("#Mobile").val();
                 var email = $("#Email").val();
                 var address = $("#Address").val();
-
+                $.ajax({
+                    type: "POST",
+                    url: rootPath + "/api/updateInfo",
+                    dataType: "json",
+                    data: {
+                        username: username,
+                        name: realname,
+                        sex: sex,
+                        mobile: mobile,
+                        email: email,
+                        address: address,
+                    },
+                    success: function () {
+                        alert("修改成功")
+                    },
+                    error: function () {
+                        alert("服务器请求失败")
+                    }
+                })
             })
 
         })
