@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2019-06-09 16:49:08
+Date: 2019-06-09 22:15:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -100,7 +100,7 @@ CREATE TABLE `problem` (
   `updated_time` datetime NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of problem
@@ -133,7 +133,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '202CB962AC59075B964B07152D234B70', '学生1', '1', '123', '123', '123', '0', '2019-06-09 13:50:00', '2019-06-09 13:50:02', '1');
+INSERT INTO `user` VALUES ('1', 'admin', '202CB962AC59075B964B07152D234B70', '学生1', '1', '123', '12345', '123', '0', '2019-06-09 13:50:00', '2019-06-09 22:14:54', '1');
 INSERT INTO `user` VALUES ('2', 'teacher1', '202CB962AC59075B964B07152D234B70', '老师1', '1', '12312', '1243', '1234', '1', '2019-06-04 19:12:19', '2019-06-04 19:12:21', '1');
 INSERT INTO `user` VALUES ('3', 'teacher2', '202CB962AC59075B964B07152D234B70', '老师2', '0', '1231', '234', '124', '1', '2019-06-09 13:55:12', '2019-06-09 13:55:14', '1');
 
@@ -200,7 +200,7 @@ CREATE TABLE `user_problem_relationship` (
 -- ----------------------------
 -- Records of user_problem_relationship
 -- ----------------------------
-INSERT INTO `user_problem_relationship` VALUES ('1', '1', '1', '1', '2019-06-09 15:57:56', '2019-06-09 15:57:56', '1');
-INSERT INTO `user_problem_relationship` VALUES ('1', '2', '1', '1', '2019-06-09 16:12:13', '2019-06-09 16:46:06', '1');
-INSERT INTO `user_problem_relationship` VALUES ('1', '3', '1', '2', '2019-06-09 16:29:33', '2019-06-09 16:46:09', '1');
-INSERT INTO `user_problem_relationship` VALUES ('1', '4', '1', '1', '2019-06-09 16:29:36', '2019-06-09 16:29:36', '1');
+INSERT INTO `user_problem_relationship` VALUES ('1', '1', '1', '2', '2019-06-09 15:57:56', '2019-06-09 19:06:55', '1');
+INSERT INTO `user_problem_relationship` VALUES ('1', '2', '1', '2', '2019-06-09 16:12:13', '2019-06-09 19:08:13', '1');
+INSERT INTO `user_problem_relationship` VALUES ('1', '3', '1', '1', '2019-06-09 16:29:33', '2019-06-09 19:07:02', '1');
+INSERT INTO `user_problem_relationship` VALUES ('1', '4', '1', '3', '2019-06-09 16:29:36', '2019-06-09 19:07:05', '1');

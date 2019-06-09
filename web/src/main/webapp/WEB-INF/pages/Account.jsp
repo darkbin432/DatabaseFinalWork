@@ -265,6 +265,7 @@
                     url: rootPath + "/api/updateInfo",
                     dataType: "json",
                     data: {
+                        id: user.id,
                         username: username,
                         name: name,
                         sex: sex,
