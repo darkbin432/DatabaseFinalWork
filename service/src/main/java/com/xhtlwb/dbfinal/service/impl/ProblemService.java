@@ -62,11 +62,11 @@ public class ProblemService implements IProblemService {
     }
 
     @Override
-    public ApiResult getOne(Integer id) {
+    public ApiResult getOne(Problem problem) {
         ApiResult apiResult = new ApiResult();
         try {
-            Problem problem = problemDao.selectOneProblem(id);
-            apiResult.success(problem);
+            Problem nproblem = problemDao.selectOneProblem(problem);
+            apiResult.success(nproblem);
         } catch (Exception ex) {
             logger.error(ex.getMessage(), ex);
             apiResult.fail("获取失败");

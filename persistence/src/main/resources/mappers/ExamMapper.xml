@@ -46,7 +46,7 @@
             resultType="com.xhtlwb.dbfinal.model.Exam">
         SELECT *,
         (SELECT `user`.`name`
-        FROM course LEFT JOIN `user` ON course.teacher_id = `user`.id) AS teacher_name
+        FROM course LEFT JOIN `user` ON course.teacher_id = `user`.id LIMIT 1) AS teacher_name
         FROM exam LEFT JOIN user_exam_relationship ON exam.id = user_exam_relationship.exam_id
         <where>
             exam.status = 1

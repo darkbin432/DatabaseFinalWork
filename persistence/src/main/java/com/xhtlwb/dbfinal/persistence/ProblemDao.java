@@ -13,7 +13,7 @@ public interface ProblemDao {
 
     void updateInfo(Problem problem);
 
-    Problem selectOneProblem(Integer id);
+    Problem selectOneProblem(Problem problem);
 
     void deldteProblem(Integer id);
 

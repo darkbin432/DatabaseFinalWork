@@ -110,6 +110,10 @@
             return null;
         }
 
+        $("#cmd_submit").click(function () {
+            window.location = rootPath + "/GoTest/MyCourse";
+        })
+
         var id = getQueryString("id");
 
         $.ajax({
@@ -167,21 +171,44 @@
                 dataType: "json",
                 async: false,
                 data: {
+                    userId: user.id,
+                    examId: examId,
                     id: selectProblemId,
                 },
                 success: function (data) {
+                    var id = data.data.id;
                     var html = "<div class=\"question-item\" id=\"" + id + "\" data-type=\"SINGLE_CHIOCE\" data-type-judgeonsave=\"0\">\n" +
                         "    <div class=\"question-face\"><p>" + data.data.problemFace + "</p></div>\n" +
-                        "    <div class=\"question-answer\">\n" +
-                        "        <input class=\"question-option-input\" type=\"radio\" value=\"1\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
-                        "        <label for=\"Question_2445923_OptionA\">\n" + data.data.problemChoose1 + "</label><br>\n" +
-                        "        <input class=\"question-option-input\" checked=\"'checked'\" type=\"radio\" value=\"2\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
-                        "        <label for=\"Question_2445923_OptionB\">\n" + data.data.problemChoose2 + "</label><br>\n" +
-                        "        <input class=\"question-option-input\" type=\"radio\" value=\"3\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
-                        "        <label for=\"Question_2445923_OptionC\">\n" + data.data.problemChoose3 + "</label><br>\n" +
-                        "        <input class=\"question-option-input\" type=\"radio\" value=\"4\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
-                        "        <label for=\"Question_2445923_OptionD\">\n" + data.data.problemChoose4 + "</label><br>\n" +
-                        "        </div>\n" +
+                        "    <div class=\"question-answer\">\n";
+                    if (data.data.choose == 1) {
+                        html += "        <input class=\"question-option-input\" checked=\"'checked'\" type=\"radio\" value=\"1\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionA\">\n" + data.data.problemChoose1 + "</label><br>\n"
+                    } else {
+                        html += "        <input class=\"question-option-input\" type=\"radio\" value=\"1\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionA\">\n" + data.data.problemChoose1 + "</label><br>\n"
+                    }
+                    if (data.data.choose == 2) {
+                        html += "        <input class=\"question-option-input\" checked=\"'checked'\"type=\"radio\" value=\"2\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionB\">\n" + data.data.problemChoose2 + "</label><br>\n"
+                    } else {
+                        html += "        <input class=\"question-option-input\" type=\"radio\" value=\"2\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionB\">\n" + data.data.problemChoose2 + "</label><br>\n"
+                    }
+                    if (data.data.choose == 3) {
+                        html += "        <input class=\"question-option-input\" checked=\"'checked'\"type=\"radio\" value=\"3\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionC\">\n" + data.data.problemChoose3 + "</label><br>\n"
+                    } else {
+                        html += "        <input class=\"question-option-input\" type=\"radio\" value=\"3\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionC\">\n" + data.data.problemChoose3 + "</label><br>\n"
+                    }
+                    if (data.data.choose == 4) {
+                        html += "        <input class=\"question-option-input\" checked=\"'checked'\"type=\"radio\" value=\"4\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionD\">\n" + data.data.problemChoose4 + "</label><br>\n"
+                    } else {
+                        html += "        <input class=\"question-option-input\" type=\"radio\" value=\"4\" id=\"" + id + "\" name=\"ANSWER_" + id + "\">\n" +
+                            "        <label for=\"Question_2445923_OptionD\">\n" + data.data.problemChoose4 + "</label><br>\n"
+                    }
+                    html += "        </div>\n" +
                         "\n" +
                         "        <div class=\"question-spinner lf\"></div>\n" +
                         "        </div>";
@@ -203,7 +230,7 @@
                     userId: user.id,
                     examId: examId,
                     problemId: $(this).attr("id"),
-                    value: $(this).val(),
+                    choose: $(this).val(),
                 },
                 success: function (data) {
                     $(".sel").removeClass("undo");

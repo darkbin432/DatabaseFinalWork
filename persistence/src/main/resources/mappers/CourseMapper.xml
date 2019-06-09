@@ -59,7 +59,7 @@
                 AND course.title LIKE "%"#{title}"%"
             </if>
             <if test="id!=null">
-                AND u2.course_id = #{id}
+                AND u2.user_id = #{id}
             </if>
         </where>
         ORDER BY course.id DESC

@@ -8,6 +8,7 @@ public class BasicParam {
     private Integer pageNow = 1;
     private Integer size = 20;
     private Integer offset;
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -39,5 +40,13 @@ public class BasicParam {
 
     public void setOffset(Integer offset) {
         this.offset = offset;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

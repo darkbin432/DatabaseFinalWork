@@ -14,7 +14,7 @@ public interface IProblemService {
 
     ApiResult update(Problem problem);
 
-    ApiResult getOne(Integer id);
+    ApiResult getOne(Problem problem);
 
     ApiResult getAllProblem(ProblemParam problemParam);
 

@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xhtlwb.dbfinal.persistence.ProblemDao">
 
-    <insert id="insertProblem" parameterType="com.xhtlwb.dbfinal.model.Problem" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertProblem" parameterType="com.xhtlwb.dbfinal.model.Problem" useGeneratedKeys="true"
+            keyProperty="id">
         INSERT INTO problem(problem_face, problem_choose_1, problem_choose_2, problem_choose_3, problem_choose_4, answer, created_time, updated_time, status)
         VALUES (#{problemFace}, #{problemChoose1}, #{problemChoose2}, #{problemChoose3}, #{problemChoose4}, #{answer}, now(), now(), #{status})
     </insert>
@@ -32,9 +33,13 @@
         where id = #{id};
     </update>
 
-    <select id="selectOneProblem" parameterType="hashmap" resultType="com.xhtlwb.dbfinal.model.Problem">
+    <select id="selectOneProblem" parameterType="com.xhtlwb.dbfinal.model.Problem" resultType="com.xhtlwb.dbfinal.model.Problem">
         SELECT * FROM problem
-        WHERE status = 1 AND id = #{id}
+        LEFT JOIN user_problem_relationship ON problem.id = user_problem_relationship.problem_id
+        WHERE problem.status = 1
+        AND user_problem_relationship.exam_id = #{examId}
+        AND user_problem_relationship.user_id = #{userId}
+        AND id = #{id}
         LIMIT 1;
     </select>
 
@@ -44,9 +49,13 @@
         WHERE id = #{id}
     </update>
 
-    <select id="getAllProblem" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam" resultType="com.xhtlwb.dbfinal.model.Problem">
-        SELECT *
-        FROM problem LEFT JOIN exam_problem_relationship ON problem.id = exam_problem_relationship.problem_id
+    <select id="getAllProblem" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam"
+            resultType="com.xhtlwb.dbfinal.model.Problem">
+        SELECT problem.*, user_problem_relationship.choose AS is_finish
+        FROM problem
+        LEFT JOIN exam_problem_relationship ON problem.id = exam_problem_relationship.problem_id
+        LEFT JOIN user_problem_relationship ON problem.id = user_problem_relationship.problem_id AND
+        exam_problem_relationship.exam_id = user_problem_relationship.exam_id
         <where>
             problem.status = 1
             AND exam_problem_relationship.exam_id = #{examId}
@@ -61,33 +70,26 @@
             status = 1
             AND user_id = #{userId}
             AND exam_id = #{examId}
-            AND problem_id = #{ProblemId}
+            AND problem_id = #{problemId}
         </where>
         LIMIT 1;
     </select>
 
-    <insert id="insertProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO user_problem_relationship(user_id, probldm_id, exam_id, choose, created_time, updated_time, status)
-        VALUES (#{userId}, #{probldmId}, #{examId}, #{choose}, now(), now(), #{status})
+    <insert id="insertProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO user_problem_relationship(user_id, problem_id, exam_id, choose, created_time, updated_time, status)
+        VALUES (#{userId}, #{problemId}, #{examId}, #{choose}, now(), now(), 1)
     </insert>
 
     <update id="updateProblemStatus" parameterType="com.xhtlwb.dbfinal.model.param.ProblemParam">
         UPDATE user_problem_relationship
         SET
-        <if test="userId!=null">
-            user_id = #{userId} AND
-        </if>
-        <if test="problemId!=null">
-            probldm_id = #{probldmId} AND
-        </if>
-        <if test="examId!=null">
-            exam_id = #{examId} AND
-        </if>
-        <if test="choose!=null">
-            choose = #{choose} AND
-        </if>
+        choose = #{choose},
         updated_time = now()
-        WHERE id = #{id};
+        <where>
+            user_id = #{userId} AND
+            problem_id = #{problemId} AND
+            exam_id = #{examId}
+        </where>
     </update>
-
 </mapper>

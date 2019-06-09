@@ -28,8 +28,8 @@ public class ProblemController {
 
     @RequestMapping(value = "/getProblem", method = RequestMethod.POST)
     @ResponseBody
-    private ApiResult getProblem(Integer id) {
-        return problemService.getOne(id);
+    private ApiResult getProblem(Problem problem) {
+        return problemService.getOne(problem);
     }
 
     @RequestMapping(value = "/submitAnswer", method = RequestMethod.POST)

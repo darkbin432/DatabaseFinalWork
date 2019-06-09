@@ -12,6 +12,8 @@ public class Problem extends Entity {
     private String problemChoose3;
     private String problemChoose4;
     private Integer answer;
+    private Integer isFinish;
+    private Integer choose;
 
     public Integer getExamId() {
         return examId;
@@ -75,5 +77,21 @@ public class Problem extends Entity {
 
     public void setAnswer(Integer answer) {
         this.answer = answer;
+    }
+
+    public Integer getIsFinish() {
+        return isFinish;
+    }
+
+    public void setIsFinish(Integer isFinish) {
+        this.isFinish = isFinish;
+    }
+
+    public Integer getChoose() {
+        return choose;
+    }
+
+    public void setChoose(Integer choose) {
+        this.choose = choose;
     }
 }
